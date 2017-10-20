@@ -11,8 +11,50 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body class="col-xs-8 container-fluid">
-      <h1>Boston Barbers</h1>
+      <!-- Logo and slogan centered at the top -->
+      <div class="logo">
+        <h1>FindMy Barber</h1>
+        <h5>Get the right cut from the right hands!</h5>
+      </div>
+      <!-- Sign up/sign in forms and register pitch for logged out users -->
+      <div class="log-in-forms">
+        <!-- Feedback -->
+        <div class="col-xs-12">
+          <br>
+          <h5 class='success'></h5>
+          <h5 class='failure'></h5>
+          <br>
+        </div>
+        <br>
+        <!-- Log In Form -->
+        <div class="log-in">
+          <form class="log-in">
+            <fieldset>
+              <legend>Log In!</legend>
+              <input type="text" id="email" name="credentials[email]" placeholder="Email">
+              <input type="password" id="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" name="submit" value="Log In!">
+            </fieldset>
+          </form>
+        </div>
+        <!-- Sign Up Form  -->
+        <div class="sign-up">
+          <br>
+          <a href="#sign-up" data-toggle="collapse">Not a member? Register now!</a>
+          <form class="collapse" id="sign-up">
+            <fieldset>
+              <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
+              <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
+              <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
+              <input type="submit" name="submit" value="Sign up!"><br>
+              <h5> Don't worry, you will not receive any spam emails from us!</h5>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <!-- Menu item for logged in users  -->
       <div class="col-xs-4 topnav" id="myTopnav">
         <a href="#home">View/Edit Profile</a>
         <a href="#news">Find a Barber</a><br>

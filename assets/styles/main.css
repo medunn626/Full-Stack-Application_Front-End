@@ -2,6 +2,16 @@ h1 {
   float: right;
 }
 
+/* Hide additional content for logged out users*/
+.registered-content {
+  display: none;
+}
+
+/*Hide sign up/sign in forms for logged in users*/
+.open-content {
+  display: none;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -11,12 +21,13 @@ h1 {
 /* Style the links inside the navigation bar */
 .topnav a {
     /*float: left;*/
-    display: block;
     color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    display: block;
     font-size: 17px;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+
 }
 
 /* Change the color of links on hover */
@@ -26,7 +37,7 @@ h1 {
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.topnav active {
     background-color: #4CAF50;
     color: white;
 }
