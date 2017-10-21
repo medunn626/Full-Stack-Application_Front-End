@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Boston Barbers</title>
+      <title>FindyMy Barber</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,11 +12,29 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
 
-    <body class="col-xs-8 container-fluid">
+    <body class="container-fluid">
       <!-- Logo and slogan centered at the top -->
       <div class="logo">
         <h1>FindMy Barber</h1>
         <h5>Get the right cut from the right hands!</h5>
+      </div>
+      <!-- Menu item for logged in users  -->
+      <br>
+      <div class="topnav" id="myTopnav">
+        <div class="conatiner">
+          <a href="#nav-links" class="nav-links" data-toggle="collapse">
+            <div class="menu-icon-top"></div>
+            <div class="menu-icon-middle"></div>
+            <div class="menu-icon-bottom"></div>
+          </a>
+        </div>
+        <div class="collapse" id="nav-links">
+          <a href="#home" class="nav">View/Edit Profile</a>
+          <a href="#news" class="nav">Find Barber</a><br>
+          <a href="#contact" class="nav">Recommend Barber</a>
+          <a href="#about" class="nav">Appointments</a>
+          <a href="#log-out" class="nav">Log Out</a>
+        </div>
       </div>
       <!-- Sign up/sign in forms and register pitch for logged out users -->
       <div class="log-in-forms">
@@ -29,8 +47,8 @@
         </div>
         <br>
         <!-- Log In Form -->
-        <div class="log-in">
-          <form class="log-in">
+        <div class="log-in-">
+          <form class="log-in" id="log-in">
             <fieldset>
               <legend>Log In!</legend>
               <input type="text" id="email" name="credentials[email]" placeholder="Email">
@@ -48,19 +66,11 @@
               <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
               <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
               <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
-              <input type="submit" name="submit" value="Sign up!"><br>
+              <input type="submit" name="submit" value="Sign up!">
               <h5> Don't worry, you will not receive any spam emails from us!</h5>
             </fieldset>
           </form>
         </div>
-      </div>
-      <!-- Menu item for logged in users  -->
-      <div class="col-xs-4 topnav" id="myTopnav">
-        <a href="#home">View/Edit Profile</a>
-        <a href="#news">Find a Barber</a><br>
-        <a href="#contact">Recommend a Barber</a>
-        <a href="#about">Settings</a>
-        <a href="#sign-out">Sign Out</a>
       </div>
     </body>
 </html>

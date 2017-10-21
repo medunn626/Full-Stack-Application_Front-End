@@ -1,5 +1,9 @@
-h1 {
+.logo {
   float: right;
+}
+
+.log-in {
+  clear: both;
 }
 
 /* Hide additional content for logged out users*/
@@ -12,26 +16,57 @@ h1 {
   display: none;
 }
 
+/* Menu and menu icon*/
+.container {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.menu-icon-top, .menu-icon-middle, .menu-icon-bottom {
+    background-color: white;
+    height: 5px;
+    margin: 6px 0;
+    transition: 0.4s;
+    width: 35px;
+}
+
+/* Rotate first bar */
+.change-top  {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+
+}
+
+/* Fade out the second bar */
+.change-middle {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change-bottom {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
+    float: left;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
-    /*float: left;*/
     color: #f2f2f2;
     display: block;
     font-size: 17px;
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
-
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.collapse a:hover {
     background-color: #ddd;
     color: black;
 }
