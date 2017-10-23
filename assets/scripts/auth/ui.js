@@ -2,7 +2,7 @@
 
 const store = require('./../store')
 
-const modal = document.getElementById('modal')
+const modal = document.getElementById('account')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const newEmail = document.getElementById('new-email')
@@ -46,8 +46,8 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function () {
   modal.style.display = 'none'
-  $('.success').text('You successfully changed your password.')
   $('.failure').text('')
+  $('.success').text('You successfully changed your password.')
   passwordChangeOld.value = ''
   passwordChangeNew.value = ''
   $('.modal-failure').text('')
@@ -59,22 +59,28 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   store.user = null
-  $('.success').text('You have successfully signed out.')
   $('.failure').text('')
+  $('.success').text('You have successfully signed out.')
   email.value = ''
   password.value = ''
   newEmail.value = ''
   newPassword.value = ''
   newConfirm.value = ''
-  $('div.main-area').addClass('hidden-content')
-  $('div.display-game-id').addClass('hidden-content')
-  $('div.sign-up').removeClass('hidden-content')
-  $('div.sign-in').removeClass('hidden-content')
+  $('div.topnav').addClass('hide-content')
+  $('div.topnav').removeClass('col-xs-2')
+  $('div.appointments').addClass('hide-content')
+  $('div.recommend').addClass('hide-content')
+  $('div.log-in').removeClass('hide-content')
+  $('div.find').addClass('col-lg-6')
+  $('div.find').addClass('col-md-6')
+  $('div.find').removeClass('col-lg-4')
+  $('div.find').removeClass('col-md-4')
+  $('div.logo').removeClass('col-xs-10')
 }
 
 const signOutFailure = function () {
-  $('.failure').text('Sorry, please try again.')
   $('.success').text('')
+  $('.failure').text('Sorry, please try again.')
 }
 
 module.exports = {

@@ -27,16 +27,31 @@
         </div>
         <div class="collapse" id="nav-links">
           <a href="#profile" class="nav">View/Edit Profile</a>
-          <a href="#account" class="nav">Account Settings</a>
-          <a href="#log-out" class="nav">Log Out</a>
+          <a href="#account" class="nav" id="account-modal">Account Settings</a>
+          <a href="#log-out" class="nav" id="log-out">Log Out</a>
         </div>
       </div>
+    </div>
+        <!-- Account Settings link will trigger password change modal -->
+            <div id="account" class="modal">
+              <div class="modal-content">
+                <span class="close" id="close">&times;</span>
+                <form id="change-password">
+                  <fieldset>
+                    <legend>Would you like to change your password?</legend>
+                    <h5 class="modal-failure"></h5>
+                    <input type="password" id="old" name="passwords[old]" placeholder="Old Password"><br>
+                    <input type="password" id="new" name="passwords[new]" placeholder="New Password"><br>
+                    <input type="submit" name="submit" value="Change Password">
+                  </fieldset>
+                </form>
+              </div>
+            </div>
       <!-- Logo and slogan centered at the top -->
       <div class="logo">
         <h1>FindMy Barber</h1>
         <h5>Get the right cut from the right hands!</h5>
       </div>
-    </div>
         <!-- Feedback -->
         <div class="col-xs-12">
           <br>

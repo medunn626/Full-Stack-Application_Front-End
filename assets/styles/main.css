@@ -120,3 +120,42 @@ ul {
   display: inline-block;
   text-align:left;
 }
+
+.modal {
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 60%;
+    z-index: 1;
+}
+
+.modal-content {
+    background-color: blue;
+    border: 1px solid #888;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+}
+
+.modal-failure {
+  color: red;
+  text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+
+}

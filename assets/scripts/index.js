@@ -3,6 +3,8 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
+const passwordChangeOld = document.getElementById('old')
+const passwordChangeNew = document.getElementById('new')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -43,6 +45,25 @@ $('.other-box').on('click', other)
 
 $(() => {
   authEvents.addHandlers()
+})
+
+// Change password modal variables and functions:
+const modal = document.getElementById('account')
+const openModal = function () {
+  modal.style.display = 'block'
+}
+const closeModal = function () {
+  modal.style.display = 'none'
+  passwordChangeOld.value = ''
+  passwordChangeNew.value = ''
+  $('.modal-failure').text('')
+}
+$(() => {
+  $('#account-modal').on('click', openModal)
+})
+
+$(() => {
+  $('#close').on('click', closeModal)
 })
 
 // use require with a reference to bundle the file and use it in this file
