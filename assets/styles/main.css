@@ -1,18 +1,14 @@
+div {
+  display: block;
+}
+
 .logo {
   float: right;
+  text-align: center;
 }
 
-.log-in {
-  clear: both;
-}
-
-/* Hide additional content for logged out users*/
-.registered-content {
-  display: none;
-}
-
-/*Hide sign up/sign in forms for logged in users*/
-.open-content {
+/* Hide additional content for logged out users, etc.*/
+.hide-content {
   display: none;
 }
 
@@ -59,8 +55,8 @@
 .topnav a {
     color: #f2f2f2;
     display: block;
-    font-size: 17px;
-    padding: 14px 16px;
+    font-size: 15px;
+    padding: 12px 12px;
     text-align: center;
     text-decoration: none;
 }
@@ -75,4 +71,54 @@
 .topnav active {
     background-color: #4CAF50;
     color: white;
+}
+
+.selections {
+  clear: both;
+}
+
+.log-in-forms {
+  text-align: center;
+}
+
+.success {
+  color: darkgreen;
+  text-align: center;
+}
+
+.failure {
+  color: red;
+  text-align: center;
+}
+
+.panel {
+  background-color: #fff;
+  border: 0 solid;
+  margin-bottom: 20px;
+}
+
+.panel-default {
+  border-color: #ddd;
+}
+
+.panel-heading {
+  /*background-color: #019696;*/
+  border-bottom: 2px solid;
+  /*border-color: #ddd;
+  color: #f1f1f1;*/
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.panel-body {
+  padding: 20px;
+  text-align: center;
+}
+
+ul {
+  display: inline-block;
+  text-align:left;
 }

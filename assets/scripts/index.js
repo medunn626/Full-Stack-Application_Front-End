@@ -16,6 +16,11 @@ const rotate = function () {
 }
 $('.nav-links').on('click', rotate)
 
+const hide = function () {
+  $('div.pitch').toggleClass('hide-content')
+}
+$('.register').on('click', hide)
+
 $(() => {
   authEvents.addHandlers()
 })
