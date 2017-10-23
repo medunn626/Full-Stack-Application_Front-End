@@ -8,7 +8,7 @@ $(() => {
   setAPIOrigin(location, config)
 })
 
-// Menu icon rotation
+// Menu icon rotation:
 const rotate = function () {
   $('div.menu-icon-top').toggleClass('change-top')
   $('div.menu-icon-middle').toggleClass('change-middle')
@@ -16,10 +16,30 @@ const rotate = function () {
 }
 $('.nav-links').on('click', rotate)
 
+// Hide pitch about registering when clicking on the register link:
 const hide = function () {
   $('div.pitch').toggleClass('hide-content')
 }
 $('.register').on('click', hide)
+
+// Only allow numbers for certain textboxes:
+const isNumberKey = function (evt) {
+  const charCode = (evt.which) ? evt.which : event.keyCode
+  if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+    return false
+  } else {
+    return true
+  }
+}
+$('.zip').on('keypress', isNumberKey)
+$('.price').on('keypress', isNumberKey)
+$('.phone').on('keypress', isNumberKey)
+
+// Toggle the "Other" textbox:
+const other = function () {
+  $('div.other-text').toggleClass('hide-content')
+}
+$('.other-box').on('click', other)
 
 $(() => {
   authEvents.addHandlers()

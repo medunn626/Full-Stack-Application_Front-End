@@ -12,8 +12,10 @@ const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 
 const signUpSuccess = function (data) {
+  console.log(data)
   $('.success').text('You are now a member! Please sign in.')
   $('.failure').text('')
+  $('div.registration-form').addClass('hide-content')
 }
 
 const signUpFailure = function () {
