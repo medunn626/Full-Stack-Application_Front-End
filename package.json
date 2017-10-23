@@ -7,6 +7,7 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "dependencies": {
+    "inputmask": "^3.3.10",
     "jquery": "^3.2.1"
   },
   "devDependencies": {

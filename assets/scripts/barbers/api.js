@@ -17,10 +17,11 @@ const getBarber = function (id) {
   })
 }
 
-const create = function () {
+const createBarber = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/barbers',
     method: 'POST',
+    data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -30,5 +31,5 @@ const create = function () {
 module.exports = {
   getBarbers,
   getBarber,
-  create
+  createBarber
 }

@@ -74,7 +74,7 @@
                     <label for="zip">Zip Code:</label>
                     <input type="text" name="credentials[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
-                    <input type="text" name="credentials[price]" class="price" size="5" maxlength="3" placeholder="Price"><br>
+                    <input type="text" name="credentials[price]" class="price" id="price" size="5" maxlength="3" placeholder="Price"><br>
                     <label for="day">Best Day:</label>
                     <select id="day">
                       <option value="mon">Monday</option>
@@ -171,32 +171,29 @@
                 <form class="collapse" id="barber-info">
                   <fieldset>
                     <label for="barber-name">Barber Name:</label>
-                    <input type="text" name="credentials[name]" id="barber-name" placeholder="Name"><br>
+                    <input type="text" name="barber[name]" id="barber-name" placeholder="Name"><br>
                     <label for="barber-shop">Shop Name:</label>
-                    <input type="text" name="credentials[shop]" id="barber-shop" placeholder="Shop Name"><br>
-                    <label>Phone Number: (</label>
-                    <input type="text" class="phone" name="credentials[area-code]" size="3" maxlength="3">
-                    <label>)</label>
-                    <input type="text" class="phone" name="credentials[middle]" size="3" maxlength="3">
-                    <label>-</label>
-                    <input type="text" class="phone" name="credentials[last]" size="4" maxlength="4"><br>
+                    <input type="text" name="barber[shop_name]" id="barber-shop" placeholder="Shop Name"><br>
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" name="barber[phone]" class=
+                    "phone" id="phone" size="12" maxlength="10" placeholder="Phone"><br>
                     <label for="zip">Zip Code:</label>
-                    <input type="text" name="credentials[zip]" class="zip" size="5" maxlength="5" placeholder="Zip"><br>
+                    <input type="text" name="barber[zip]" class="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
-                    <input type="text" name="credentials[price]" class="price" size="5" maxlength="3" placeholder="Price"><br>
+                    <input type="text" name="barber[max_price]" class="price" size="5" maxlength="3" placeholder="Price"><br>
                     <label for="barber-day">Busiest Day:</label>
-                    <select id="barber-day">
-                      <option value="mon">Monday</option>
-                      <option value="tues">Tuesday</option>
-                      <option value="wed">Wednesday</option>
-                      <option value="thurs">Thursday</option>
-                      <option value="fri">Friday</option>
-                      <option value="sat">Saturday</option>
-                      <option value="sun">Sunday</option>
+                    <select id="barber-day" name="barber[busiest_day]">
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                      <option value="Sunday">Sunday</option>
                     </select>
                     <br>
                     <label for="barber-time">Busiest Time Range:</label>
-                    <select id="barber-time">
+                    <select id="barber-time" name="barber[busiest_time]">
                       <option value="9:00">9-10AM</option>
                       <option value="10:00">10-11AM</option>
                       <option value="11:00">11-12noon</option>
@@ -210,18 +207,19 @@
                       <option value="7:00">7-8PM</option>
                     </select>
                     <br>
-                    <label>Hair Services Offered:</label><br>
-                    <input type="checkbox" name="credentials[style]" value="bun">Bun/Man-Bun
-                    <input type="checkbox" name="credentials[style]" value="full">Full Cut<br>
-                    <input type="checkbox" name="credentials[style]" value="line">Line Up
-                    <input type="checkbox" name="credentials[style]" value="mohawk">Mohawk/Frohawk<br>
-                    <input type="checkbox" name="credentials[style]" value="side">Side Part
-                    <input type="checkbox" name="credentials[style]" value="taper">Taper Fade<br>
-                    <input type="checkbox" name="credentials[style]" value="other" class="other-box-barber">Other
-                    <div class="other-text-barber hide-content"><input type="text" name="other" size="10"></div>
+                    <label for="services">Hair Services Offered:</label><br>
+                    <select id="services" name="barber[services]">
+                      <option value="Full Cut">Full Cut</option>
+                      <option value="Fade and Lineup">Fade and Lineup</option>
+                      <option value="Man Bun">Man-Bun</option>
+                      <option value="Mohawk">Mohawk/Frohawk</option>
+                      <option value="Side Part">Side Part</option>
+                      <option value="Taper Fade">Taper Fade</option>
+                      <option value="Other">Other</option>
+                    </select>
                     <br>
                     <label for="barber-rating">Rate Your Barber (1-5):</label>
-                    <input type="number" min="1" max="5" step="1" size="3" maxlength="1" id="barber-rating"><br>
+                    <input type="number" name="barber[average_rating]" min="1" max="5" step="1" size="3" maxlength="1" id="barber-rating"><br>
                     <input type="submit" name="submit" value="Submit">
                   </fieldset>
                 </form>

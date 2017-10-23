@@ -38,16 +38,6 @@ $('.zip').on('keypress', isNumberKey)
 $('.price').on('keypress', isNumberKey)
 $('.phone').on('keypress', isNumberKey)
 
-// Toggle the "Other" textbox:
-const other = function () {
-  $('div.other-text').toggleClass('hide-content')
-}
-$('.other-box').on('click', other)
-const otherBarber = function () {
-  $('div.other-text-barber').toggleClass('hide-content')
-}
-$('.other-box-barber').on('click', otherBarber)
-
 // Change password modal variables and functions:
 const modal = document.getElementById('account')
 const openModal = function () {

@@ -21,8 +21,9 @@ const onGetBarber = function () {
 
 const onCreateBarber = function (event) {
   const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
-  api.getBarber(data)
+  api.createBarber(data)
     .then(ui.onCreateBarberSuccess)
     .catch(ui.onError)
 }
