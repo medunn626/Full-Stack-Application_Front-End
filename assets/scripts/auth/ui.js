@@ -13,27 +13,35 @@ const passwordChangeNew = document.getElementById('new')
 
 const signUpSuccess = function (data) {
   console.log(data)
-  $('.success').text('You are now a member! Please sign in.')
   $('.failure').text('')
+  $('.success').text('You are now a member! Please sign in.')
   $('div.registration-form').addClass('hide-content')
 }
 
 const signUpFailure = function () {
-  $('.failure').text('Please try again. This user exists already or you need to re-enter each field correctly.')
   $('.success').text('')
+  $('.failure').text('Please try again. This user exists already or you need to re-enter each field correctly.')
 }
 
 const signInSuccess = function (data) {
   store.user = data.user
-  $('div.main-area').removeClass('hidden-content')
-  $('div.display-game-id').removeClass('hidden-content')
-  $('div.sign-up').addClass('hidden-content')
-  $('div.sign-in').addClass('hidden-content')
+  $('.failure').text('')
+  $('.success').text('You are now signed in.')
+  $('div.topnav').removeClass('hide-content')
+  $('div.topnav').addClass('col-xs-2')
+  $('div.appointments').removeClass('hide-content')
+  $('div.recommend').removeClass('hide-content')
+  $('div.log-in').addClass('hide-content')
+  $('div.find').removeClass('col-lg-6')
+  $('div.find').removeClass('col-md-6')
+  $('div.find').addClass('col-lg-4')
+  $('div.find').addClass('col-md-4')
+  $('div.logo').addClass('col-xs-10')
 }
 
 const signInFailure = function () {
-  $('.failure').text('Could not find user with that email and password.')
   $('.success').text('')
+  $('.failure').text('Could not find user with that email and password.')
 }
 
 const changePasswordSuccess = function () {
