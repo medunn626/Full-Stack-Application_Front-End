@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/events')
+const barberEvents = require('./barbers/events')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 
@@ -42,10 +43,10 @@ const other = function () {
   $('div.other-text').toggleClass('hide-content')
 }
 $('.other-box').on('click', other)
-
-$(() => {
-  authEvents.addHandlers()
-})
+const otherBarber = function () {
+  $('div.other-text-barber').toggleClass('hide-content')
+}
+$('.other-box-barber').on('click', otherBarber)
 
 // Change password modal variables and functions:
 const modal = document.getElementById('account')
@@ -61,9 +62,15 @@ const closeModal = function () {
 $(() => {
   $('#account-modal').on('click', openModal)
 })
-
 $(() => {
   $('#close').on('click', closeModal)
+})
+
+// Handlers:
+
+$(() => {
+  authEvents.addHandlers()
+  barberEvents.addHandlers()
 })
 
 // use require with a reference to bundle the file and use it in this file

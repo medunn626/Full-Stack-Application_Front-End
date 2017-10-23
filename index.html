@@ -66,12 +66,13 @@
           <div class="col-lg-6 col-md-6 col-sm-12 find">
             <div class="panel panel-default">
               <div class="panel-heading">Find a Barber</div>
-              <div class="panel-body">
+              <div class="panel-body find-form">
                 <a href="#credentials" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
                 <form class="collapse" id="credentials">
                   <fieldset>
+                    <input type="hidden" name="credentials[id]" class="id" id="barber-id" value="">
                     <label for="zip">Zip Code:</label>
-                    <input type="text" name="credentials[zip]" class="zip" size="5" maxlength="5" placeholder="Zip"><br>
+                    <input type="text" name="credentials[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
                     <input type="text" name="credentials[price]" class="price" size="5" maxlength="3" placeholder="Price"><br>
                     <label for="day">Best Day:</label>
@@ -216,10 +217,12 @@
                     <input type="checkbox" name="credentials[style]" value="mohawk">Mohawk/Frohawk<br>
                     <input type="checkbox" name="credentials[style]" value="side">Side Part
                     <input type="checkbox" name="credentials[style]" value="taper">Taper Fade<br>
-                    <input type="checkbox" name="credentials[style]" value="other" class="other-box">Other
-                    <div class="other-text hide-content"><input type="text" name="other" size="10"></div>
+                    <input type="checkbox" name="credentials[style]" value="other" class="other-box-barber">Other
+                    <div class="other-text-barber hide-content"><input type="text" name="other" size="10"></div>
                     <br>
-                    <input type="submit" name="submit" value="Search">
+                    <label for="barber-rating">Rate Your Barber (1-5):</label>
+                    <input type="number" min="1" max="5" step="1" size="3" maxlength="1" id="barber-rating"><br>
+                    <input type="submit" name="submit" value="Submit">
                   </fieldset>
                 </form>
               </div>
