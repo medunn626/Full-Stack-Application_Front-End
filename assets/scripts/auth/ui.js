@@ -27,21 +27,18 @@ const signInSuccess = function (data) {
   store.user = data.user
   $('.failure').text('')
   $('.success').text('You are now signed in.')
-  $('div.topnav').removeClass('hide-content')
-  $('div.topnav').addClass('col-xs-2')
+  $('div.log-in-form').addClass('hide-content')
+  $('div.registration-form').addClass('hide-content')
+  $('div.pitch').addClass('hide-content')
+  $('div.your-account').removeClass('hide-content')
   $('div.appointments').removeClass('hide-content')
   $('div.recommend').removeClass('hide-content')
-  $('div.log-in').addClass('hide-content')
-  $('div.find').removeClass('col-lg-6')
-  $('div.find').removeClass('col-md-6')
-  $('div.find').addClass('col-lg-4')
-  $('div.find').addClass('col-md-4')
-  $('div.logo').addClass('col-xs-10')
+  $('div.account-heading').html('Your Account')
 }
 
 const signInFailure = function () {
   $('.success').text('')
-  $('.failure').text('Could not find user with that email and password.')
+  $('.failure').text(`Please try again. That user doesn't exist or you need to re-enter each field correctly.`)
 }
 
 const changePasswordSuccess = function () {
@@ -66,16 +63,13 @@ const signOutSuccess = function () {
   newEmail.value = ''
   newPassword.value = ''
   newConfirm.value = ''
-  $('div.topnav').addClass('hide-content')
-  $('div.topnav').removeClass('col-xs-2')
+  $('div.log-in-form').removeClass('hide-content')
+  $('div.registration-form').removeClass('hide-content')
+  $('div.pitch').removeClass('hide-content')
+  $('div.your-account').addClass('hide-content')
   $('div.appointments').addClass('hide-content')
   $('div.recommend').addClass('hide-content')
-  $('div.log-in').removeClass('hide-content')
-  $('div.find').addClass('col-lg-6')
-  $('div.find').addClass('col-md-6')
-  $('div.find').removeClass('col-lg-4')
-  $('div.find').removeClass('col-md-4')
-  $('div.logo').removeClass('col-xs-10')
+  $('div.account-heading').html('Log in to Account')
 }
 
 const signOutFailure = function () {

@@ -13,42 +13,8 @@
     </head>
 
     <body class="container-fluid">
-      <!-- Div for menu item and logo -->
-      <div class = "top col-xs-12">
-      <!-- Menu item for logged in users  -->
-      <br>
-      <div class="topnav hide-content" id="myTopnav">
-        <div class="conatiner">
-          <a href="#nav-links" class="nav-links" data-toggle="collapse">
-            <div class="menu-icon-top"></div>
-            <div class="menu-icon-middle"></div>
-            <div class="menu-icon-bottom"></div>
-          </a>
-        </div>
-        <div class="collapse" id="nav-links">
-          <a href="#profile" class="nav">View/Edit Profile</a>
-          <a href="#account" class="nav" id="account-modal">Account Settings</a>
-          <a href="#log-out" class="nav" id="log-out">Log Out</a>
-        </div>
-      </div>
-    </div>
-        <!-- Account Settings link will trigger password change modal -->
-            <div id="account" class="modal">
-              <div class="modal-content">
-                <span class="close" id="close">&times;</span>
-                <form id="change-password">
-                  <fieldset>
-                    <legend>Would you like to change your password?</legend>
-                    <h5 class="modal-failure"></h5>
-                    <input type="password" id="old" name="passwords[old]" placeholder="Old Password"><br>
-                    <input type="password" id="new" name="passwords[new]" placeholder="New Password"><br>
-                    <input type="submit" name="submit" value="Change Password">
-                  </fieldset>
-                </form>
-              </div>
-            </div>
       <!-- Logo and slogan centered at the top -->
-      <div class="logo">
+      <div class="col-xs-12 top logo">
         <h1>FindMy Barber</h1>
         <h5>Get the right cut from the right hands!</h5>
       </div>
@@ -60,7 +26,7 @@
           <br>
         </div>
         <br>
-        <!-- Main optioins: Find Barber, Recommend Barber, Appointments, Login,  -->
+        <!-- Main optioins: Find Barber, Recommend Barber, Appointments, Login -->
         <div class="selections">
           <!-- Find a Barber Form -->
           <div class="col-lg-6 col-md-6 col-sm-12 find">
@@ -70,24 +36,24 @@
                 <a href="#credentials" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
                 <form class="collapse" id="credentials">
                   <fieldset>
-                    <input type="hidden" name="credentials[id]" class="id" id="barber-id" value="">
+                    <input type="hidden" name="barber[id]" class="id" id="barber-id" value="">
                     <label for="zip">Zip Code:</label>
-                    <input type="text" name="credentials[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
+                    <input type="text" name="customer[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
-                    <input type="text" name="credentials[price]" class="price" id="price" size="5" maxlength="3" placeholder="Price"><br>
+                    <input type="text" name="customer[max_price]" class="price" id="price" size="5" maxlength="3" placeholder="Price"><br>
                     <label for="day">Best Day:</label>
-                    <select id="day">
-                      <option value="mon">Monday</option>
-                      <option value="tues">Tuesday</option>
-                      <option value="wed">Wednesday</option>
-                      <option value="thurs">Thursday</option>
-                      <option value="fri">Friday</option>
-                      <option value="sat">Saturday</option>
-                      <option value="sun">Sunday</option>
+                    <select id="day" name="customer[best_day]">
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                      <option value="Sunday">Sunday</option>
                     </select>
                     <br>
                     <label for="time">Best Time Range:</label>
-                    <select id="time">
+                    <select id="time" name="customer[best_time]">
                       <option value="9:00">9-10AM</option>
                       <option value="10:00">10-11AM</option>
                       <option value="11:00">11-12noon</option>
@@ -101,60 +67,25 @@
                       <option value="7:00">7-8PM</option>
                     </select>
                     <br>
-                    <label>Your Hairstyle:</label><br>
-                    <input type="checkbox" name="credentials[style]" value="bun">Bun/Man-Bun
-                    <input type="checkbox" name="credentials[style]" value="full">Full Cut<br>
-                    <input type="checkbox" name="credentials[style]" value="line">Line Up
-                    <input type="checkbox" name="credentials[style]" value="mohawk">Mohawk/Frohawk<br>
-                    <input type="checkbox" name="credentials[style]" value="side">Side Part
-                    <input type="checkbox" name="credentials[style]" value="taper">Taper Fade<br>
-                    <input type="checkbox" name="credentials[style]" value="other" class="other-box">Other
-                    <div class="other-text hide-content"><input type="text" name="other" size="10"></div>
-                    <br>
+                    <label for="services">Your Hairstyle:</label><br>
+                    <select id="style" name="customer[services]">
+                      <option value="Full Cut">Full Cut</option>
+                      <option value="Fade and lineup">Fade and Lineup</option>
+                      <option value="Man Bun">Man-Bun</option>
+                      <option value="Mohawk">Mohawk/Frohawk</option>
+                      <option value="Side Part">Side Part</option>
+                      <option value="Taper fade">Taper Fade</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <br><br>
                     <input type="submit" name="submit" value="Search">
                   </fieldset>
                 </form>
               </div>
             </div>
           </div>
-          <!-- Sign In/Sign Up Form -->
-          <div class="col-lg-6 col-md-6 col-sm-12 log-in">
-            <div class="panel panel-default">
-              <div class="panel-heading">Log in to Account</div>
-              <div class="panel-body">
-                <form class="log-in" id="log-in">
-                  <fieldset>
-                    <input type="text" id="email" name="credentials[email]" placeholder="Email"><br>
-                    <input type="password" id="password" name="credentials[password]" placeholder="Password"><br>
-                    <input type="submit" name="submit" value="Log In!">
-                  </fieldset>
-                  </form>
-                  <br>
-                  <div class="registration-form">
-                  <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
-                <form id="sign-up" class="collapse">
-                  <fieldset>
-                    <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
-                    <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
-                    <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
-                    <input type="submit" name="submit" value="Sign up!">
-                    <h5> Don't worry, you will not receive any spam mail!</h5>
-                  </fieldset>
-                </form>
-              </div>
-                  <div class="pitch">
-                  <h4>With a Registered Account, You Can:</h4>
-                  <ul>
-                    <li>Save your preferrences</li>
-                    <li>Make appointments online</li>
-                    <li>Recommend barbers to us</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- Book Appointments Form  -->
-          <div class="col-lg-4 col-md-4 col-sm-12 appointments hide-content">
+          <div class="col-lg-6 col-md-6 col-sm-12 appointments hide-content">
             <div class="panel panel-default">
               <div class="panel-heading">Your Appointments</div>
               <div class="panel-body">
@@ -163,7 +94,7 @@
             </div>
           </div>
           <!-- Recommend a Barber Form -->
-          <div class="col-lg-4 col-md-4 col-sm-12 recommend hide-content">
+          <div class="ccol-lg-6 col-md-6 col-sm-12 recommend hide-content">
             <div class="panel panel-default">
               <div class="panel-heading">Recommend A Barber</div>
               <div class="panel-body">
@@ -178,9 +109,9 @@
                     <input type="text" name="barber[phone]" class=
                     "phone" id="phone" size="12" maxlength="10" placeholder="Phone"><br>
                     <label for="zip">Zip Code:</label>
-                    <input type="text" name="barber[zip]" class="zip" size="5" maxlength="5" placeholder="Zip"><br>
+                    <input type="text" name="barber[zip]" class="zip" id="barber-zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
-                    <input type="text" name="barber[max_price]" class="price" size="5" maxlength="3" placeholder="Price"><br>
+                    <input type="text" name="barber[max_price]" id="barber-price" class="price" size="5" maxlength="3" placeholder="Price"><br>
                     <label for="barber-day">Busiest Day:</label>
                     <select id="barber-day" name="barber[busiest_day]">
                       <option value="Monday">Monday</option>
@@ -210,11 +141,11 @@
                     <label for="services">Hair Services Offered:</label><br>
                     <select id="services" name="barber[services]">
                       <option value="Full Cut">Full Cut</option>
-                      <option value="Fade and Lineup">Fade and Lineup</option>
+                      <option value="Fade and lineup">Fade and Lineup</option>
                       <option value="Man Bun">Man-Bun</option>
                       <option value="Mohawk">Mohawk/Frohawk</option>
                       <option value="Side Part">Side Part</option>
-                      <option value="Taper Fade">Taper Fade</option>
+                      <option value="Taper fade">Taper Fade</option>
                       <option value="Other">Other</option>
                     </select>
                     <br>
@@ -226,6 +157,63 @@
               </div>
             </div>
           </div>
+          <!-- Sign In/Sign Up Form -->
+          <div class="col-lg-6 col-md-6 col-sm-12 log-in">
+            <div class="panel panel-default">
+              <div class="panel-heading account-heading">Log in to Account</div>
+              <div class="panel-body">
+                <div class="log-in-form">
+                <form id="log-in">
+                  <fieldset>
+                    <input type="text" id="email" name="credentials[email]" placeholder="Email"><br>
+                    <input type="password" id="password" name="credentials[password]" placeholder="Password"><br>
+                    <input type="submit" name="submit" value="Log In!">
+                  </fieldset>
+                  </form>
+                </div>
+                  <br>
+                  <div class="registration-form">
+                  <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
+                <form id="sign-up" class="collapse">
+                  <fieldset>
+                    <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
+                    <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
+                    <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
+                    <input type="submit" name="submit" value="Sign up!">
+                    <h5> Don't worry, you will not receive any spam mail!</h5>
+                  </fieldset>
+                </form>
+              </div>
+                  <div class="pitch">
+                  <h4>With a Registered Account, You Can:</h4>
+                  <ul>
+                    <li>Save your preferrences</li>
+                    <li>Make appointments online</li>
+                    <li>Recommend barbers to us</li>
+                  </ul>
+                </div>
+                <div class="your-account hide-content">
+                  <input type="submit" name="submit" id="account-modal" value="Account Settings"><br><br>
+                  <input type="submit" id="log-out" name="submit" value="Log Out">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Account Settings link will trigger password change modal -->
+              <div id="account" class="modal">
+                <div class="modal-content">
+                  <span class="close" id="close">&times;</span>
+                  <form id="change-password">
+                    <fieldset>
+                      <legend>Would you like to change your password?</legend>
+                      <h5 class="modal-failure"></h5>
+                      <input type="password" id="old" name="passwords[old]" placeholder="Old Password"><br>
+                      <input type="password" id="new" name="passwords[new]" placeholder="New Password"><br>
+                      <input type="submit" name="submit" value="Change Password">
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
         </div>
     </body>
 </html>

@@ -11,14 +11,6 @@ $(() => {
   setAPIOrigin(location, config)
 })
 
-// Menu icon rotation:
-const rotate = function () {
-  $('div.menu-icon-top').toggleClass('change-top')
-  $('div.menu-icon-middle').toggleClass('change-middle')
-  $('div.menu-icon-bottom').toggleClass('change-bottom')
-}
-$('.nav-links').on('click', rotate)
-
 // Hide pitch about registering when clicking on the register link:
 const hide = function () {
   $('div.pitch').toggleClass('hide-content')
