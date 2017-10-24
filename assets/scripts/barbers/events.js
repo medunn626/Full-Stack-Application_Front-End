@@ -28,6 +28,13 @@ const onGetBarberId = function (event) {
   }
 }
 
+const onGetBarberIdQuick = function () {
+  api.getBarbers()
+    .then(ui.onGetBarberIdQuickSuccess)
+    .then(onGetBarber)
+    .catch(ui.onError)
+}
+
 const onGetBarber = function () {
   const showBarbersHtml = showBarbersTemplate({ barbers: store.barbers })
   if (barberId.value !== '') {
@@ -35,9 +42,15 @@ const onGetBarber = function () {
       .then(ui.onGetBarberSuccess)
       .catch(ui.onError)
   } else {
-    $('.find-form').html(showBarbersHtml)
     $('.failure').text('')
     $('.success').text(`We couldn't find you a match, but here are some other options.`)
+    document.getElementById('credentials').reset()
+    $('div.credentials').addClass('hide-content')
+    $('.find-form').append(showBarbersHtml)
+    $('.clear').on('click', function () {
+      $('div.barbers-result').addClass('hide-content')
+      $('div.credentials').removeClass('hide-content')
+    })
   }
 }
 
@@ -57,6 +70,7 @@ const onCreateBarber = function (event) {
 
 const addHandlers = function () {
   $('#credentials').on('submit', onGetBarberId)
+  $('#quick-search').on('submit', onGetBarberIdQuick)
   $('#barber-info').on('submit', onCreateBarber)
 }
 

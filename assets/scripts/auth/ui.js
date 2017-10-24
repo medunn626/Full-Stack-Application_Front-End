@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const customerEvents = require('../customer/events')
 
 const modal = document.getElementById('account')
 const email = document.getElementById('email')
@@ -38,6 +39,7 @@ const signInSuccess = function (data) {
   $('div.recommend').removeClass('hide-content')
   $('div.account-heading').html('Your Account')
   searchSubmit.value = 'Save & Search'
+  customerEvents.onGetCustomer()
 }
 
 const signInFailure = function () {
@@ -74,7 +76,10 @@ const signOutSuccess = function () {
   $('div.your-account').addClass('hide-content')
   $('div.appointments').addClass('hide-content')
   $('div.recommend').addClass('hide-content')
+  $('div.saved-info-section').addClass('hide-content')
   $('div.account-heading').html('Log in to Account')
+  $('div.quick-search').addClass('hide-content')
+  searchSubmit.value = 'Search'
 }
 
 const signOutFailure = function () {

@@ -33,11 +33,13 @@
             <div class="panel panel-default">
               <div class="panel-heading">Find a Barber</div>
               <div class="panel-body find-form">
+                <div class="credentials">
                 <a href="#credentials" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
                 <form class="collapse" id="credentials">
                   <fieldset>
                     <input type="hidden" name="barber[id]" class="barb-id" id="barber-id" value="">
-                    <input type="hidden" name="customer[user_id]" class="cust-id" id="user-id" value="">
+                    <input type="hidden" name="customer[id]" class="cust-id" id="customer-id" value="">
+                    <input type="hidden" name="customer[user_id]" class="user-id" id="user-id" value="">
                     <label for="zip">Zip Code:</label>
                     <input type="text" name="customer[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
@@ -86,6 +88,7 @@
                     <input type="submit" name="submit" id="find-submit" value="Search">
                   </fieldset>
                 </form>
+              </div>
               </div>
             </div>
           </div>
@@ -202,6 +205,9 @@
                 </div>
                 <!-- Area to display saved customer info. Hidden until customer created. -->
                 <div class="saved-info-section hide-content"></div>
+                <div class="quick-search hide-content">
+                  <input type="submit" id="quick-search" name="submit" value="Quick Search"><br><br>
+                </div>
                 <!-- Area to change password or log out -->
                 <div class="your-account hide-content">
                   <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>

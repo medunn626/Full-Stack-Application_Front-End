@@ -12,14 +12,19 @@ const showCustomerTemplate = require('../templates/customer-listing.handlebars')
 const onCreateCustomerSuccess = function (data) {
   store.customer = data.customer
   console.log(data)
+  console.log(store.user)
   $('.success').append(' Your settings have also been saved.')
 }
 
 const onGetCustomerSuccess = function (data) {
-  console.log(data.customer)
-  const showCustomerHtml = showCustomerTemplate({ customer: data.customer })
-  $('div.saved-info-section').removeClass('hide-content')
-  $('div.saved-info-section').html(showCustomerHtml)
+  if (data !== null) {
+    console.log(data.customer)
+    store.customer = data.customer
+    const showCustomerHtml = showCustomerTemplate({ customer: data.customer })
+    $('div.saved-info-section').removeClass('hide-content')
+    $('div.saved-info-section').html(showCustomerHtml)
+    $('div.quick-search').removeClass('hide-content')
+  }
 }
 
 const onError = function () {
