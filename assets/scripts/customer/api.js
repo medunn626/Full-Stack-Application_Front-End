@@ -15,6 +15,17 @@ const createCustomer = function (data) {
   })
 }
 
+const getCustomer = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/customers',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  createCustomer
+  createCustomer,
+  getCustomer
 }

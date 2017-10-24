@@ -37,9 +37,11 @@ const onCreateCustomer = function () {
 }
 
 const onGetCustomer = function () {
-
+  api.getCustomer()
+    .then(ui.onGetCustomerSuccess)
+    .catch(ui.onError)
 }
-//
+
 // const onUpdateCustomer = function () {
 //
 // }

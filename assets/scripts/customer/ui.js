@@ -1,8 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-// const showBarbersTemplate = require('../templates/barbers-listing.handlebars')
-// const showBarberTemplate = require('../templates/barber-listing.handlebars')
+const showCustomerTemplate = require('../templates/customer-listing.handlebars')
 // const barberId = document.getElementById('barber-id')
 // const userZip = document.getElementById('zip')
 // const userPrice = document.getElementById('price')
@@ -16,6 +15,13 @@ const onCreateCustomerSuccess = function (data) {
   $('.success').append(' Your settings have also been saved.')
 }
 
+const onGetCustomerSuccess = function (data) {
+  console.log(data.customer)
+  const showCustomerHtml = showCustomerTemplate({ customer: data.customer })
+  $('div.saved-info-section').removeClass('hide-content')
+  $('div.saved-info-section').html(showCustomerHtml)
+}
+
 const onError = function () {
   $('.success').text('')
   $('.failure').text('There was an issue with your request.')
@@ -23,5 +29,6 @@ const onError = function () {
 
 module.exports = {
   onCreateCustomerSuccess,
+  onGetCustomerSuccess,
   onError
 }
