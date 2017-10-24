@@ -12,6 +12,7 @@ const newConfirm = document.getElementById('new-confirm')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 const searchSubmit = document.getElementById('find-submit')
+const findText = document.getElementById('find-panel-link')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -79,7 +80,11 @@ const signOutSuccess = function () {
   $('div.saved-info-section').addClass('hide-content')
   $('div.account-heading').html('Log in to Account')
   $('div.quick-search').addClass('hide-content')
+  $('div.barbers-result').addClass('hide-content')
+  $('div.barber-result').addClass('hide-content')
+  $('div.credentials').removeClass('hide-content')
   searchSubmit.value = 'Search'
+  findText.text = 'Answer some quick questions about your preferences!'
 }
 
 const signOutFailure = function () {

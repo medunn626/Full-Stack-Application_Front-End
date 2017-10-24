@@ -71,6 +71,7 @@ const onGetBarberSuccess = function (data) {
     $('.clear').on('click', function () {
       $('div.barbers-result').addClass('hide-content')
       $('div.credentials').removeClass('hide-content')
+      $('div.quick-search').removeClass('hide-content')
     })
   })
 }

@@ -28,7 +28,8 @@ const onGetBarberId = function (event) {
   }
 }
 
-const onGetBarberIdQuick = function () {
+const onGetBarberIdQuick = function (event) {
+  event.preventDefault()
   api.getBarbers()
     .then(ui.onGetBarberIdQuickSuccess)
     .then(onGetBarber)
@@ -70,7 +71,7 @@ const onCreateBarber = function (event) {
 
 const addHandlers = function () {
   $('#credentials').on('submit', onGetBarberId)
-  $('#quick-search').on('submit', onGetBarberIdQuick)
+  $('#quick-search').on('click', onGetBarberIdQuick)
   $('#barber-info').on('submit', onCreateBarber)
 }
 

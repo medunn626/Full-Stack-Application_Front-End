@@ -27,7 +27,6 @@ const onCreateCustomer = function () {
   const data = getFormFields(this)
   console.log(data)
   console.log(store.user)
-  event.preventDefault()
   if (store.user !== null && customerName.value !== '') {
     api.createCustomer(data)
       .then(ui.onCreateCustomerSuccess)
@@ -42,12 +41,21 @@ const onGetCustomer = function () {
     .catch(ui.onError)
 }
 
-// const onUpdateCustomer = function () {
-//
-// }
+const onUpdateCustomer = function (event) {
+  const data = event.target
+  const customer = data.customer
+  event.preventDefault()
+  api.updateCustomer(customer)
+    .then(ui.onUpdateCustomer)
+    .catch(ui.onError)
+}
 
 const addHandlers = function () {
-  $('#credentials').on('submit', onCreateCustomer)
+  if (ui.customerExist === false) {
+    $('#credentials').on('submit', onCreateCustomer)
+  } else {
+    $('#credentials').on('submit', onUpdateCustomer)
+  }
 }
 
 module.exports = {

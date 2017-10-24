@@ -49,6 +49,15 @@ $(() => {
   $('#close').on('click', closeModal)
 })
 
+// Hide/show quick search button:
+
+const hideQuickSearch = function () {
+  $('div.quick-search').addClass('hide-content')
+}
+$(() => {
+  $('#quick-search').on('click', hideQuickSearch)
+})
+
 // Handlers:
 
 $(() => {
