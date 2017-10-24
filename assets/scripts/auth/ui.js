@@ -10,6 +10,7 @@ const newPassword = document.getElementById('new-password')
 const newConfirm = document.getElementById('new-confirm')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
+const searchSubmit = document.getElementById('find-submit')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -25,15 +26,18 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
+  console.log(store.user)
   $('.failure').text('')
   $('.success').text('You are now signed in.')
   $('div.log-in-form').addClass('hide-content')
   $('div.registration-form').addClass('hide-content')
   $('div.pitch').addClass('hide-content')
+  $('div.customer-name').removeClass('hide-content')
   $('div.your-account').removeClass('hide-content')
   $('div.appointments').removeClass('hide-content')
   $('div.recommend').removeClass('hide-content')
   $('div.account-heading').html('Your Account')
+  searchSubmit.value = 'Save & Search'
 }
 
 const signInFailure = function () {
@@ -66,6 +70,7 @@ const signOutSuccess = function () {
   $('div.log-in-form').removeClass('hide-content')
   $('div.registration-form').removeClass('hide-content')
   $('div.pitch').removeClass('hide-content')
+  $('div.customer-name').addClass('hide-content')
   $('div.your-account').addClass('hide-content')
   $('div.appointments').addClass('hide-content')
   $('div.recommend').addClass('hide-content')

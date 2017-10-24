@@ -36,7 +36,8 @@
                 <a href="#credentials" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
                 <form class="collapse" id="credentials">
                   <fieldset>
-                    <input type="hidden" name="barber[id]" class="id" id="barber-id" value="">
+                    <input type="hidden" name="barber[id]" class="barb-id" id="barber-id" value="">
+                    <input type="hidden" name="customer[user_id]" class="cust-id" id="user-id" value="">
                     <label for="zip">Zip Code:</label>
                     <input type="text" name="customer[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
                     <label for="price">Max Price: $</label>
@@ -76,9 +77,13 @@
                       <option value="Side Part">Side Part</option>
                       <option value="Taper fade">Taper Fade</option>
                       <option value="Other">Other</option>
-                    </select>
-                    <br><br>
-                    <input type="submit" name="submit" value="Search">
+                    </select><br><br>
+                    <div class="customer-name hide-content">
+                    <label for="customer-name">Your Name:</label>
+                    <input type="text" id="customer-name" name="customer[name]" placeholder="Name"><br>
+                    <h5>This is so we can save your preferrences and book you appointments.</h5><br>
+                  </div>
+                    <input type="submit" name="submit" id="find-submit" value="Search">
                   </fieldset>
                 </form>
               </div>
@@ -157,11 +162,12 @@
               </div>
             </div>
           </div>
-          <!-- Sign In/Sign Up Form -->
+          <!-- Sign In/Sign Up Form, which becomes Your Account on log in -->
           <div class="col-lg-6 col-md-6 col-sm-12 log-in">
             <div class="panel panel-default">
               <div class="panel-heading account-heading">Log in to Account</div>
               <div class="panel-body">
+                <!-- Log In Form -->
                 <div class="log-in-form">
                 <form id="log-in">
                   <fieldset>
@@ -172,6 +178,7 @@
                   </form>
                 </div>
                   <br>
+                  <!-- Sign up Form -->
                   <div class="registration-form">
                   <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
                 <form id="sign-up" class="collapse">
@@ -183,6 +190,7 @@
                     <h5> Don't worry, you will not receive any spam mail!</h5>
                   </fieldset>
                 </form>
+                <!-- Pitch to get users to sign up -->
               </div>
                   <div class="pitch">
                   <h4>With a Registered Account, You Can:</h4>
@@ -192,14 +200,20 @@
                     <li>Recommend barbers to us</li>
                   </ul>
                 </div>
+                <!-- Area to display saved customer info. Hidden until customer created. -->
+                <div class="saved-info hide-content">
+                <a href="#saved-info" data-togle="collapse" class="saved-info">See Your Preferences!</a>
+                <div id="saved-info"></div>
+                </div>
+                <!-- Area to change password or log out -->
                 <div class="your-account hide-content">
-                  <input type="submit" name="submit" id="account-modal" value="Account Settings"><br><br>
+                  <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>
                   <input type="submit" id="log-out" name="submit" value="Log Out">
                 </div>
               </div>
             </div>
           </div>
-          <!-- Account Settings link will trigger password change modal -->
+          <!-- Change Password link will trigger password change modal -->
               <div id="account" class="modal">
                 <div class="modal-content">
                   <span class="close" id="close">&times;</span>
