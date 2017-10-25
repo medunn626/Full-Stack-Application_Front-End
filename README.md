@@ -69,11 +69,19 @@ https://user-images.githubusercontent.com/17644549/31769399-683b56c6-b4a1-11e7-8
 
 ## User Stories:
 (1) As a customer in search of a new barber, I want to be able to find a new barber based on my preferences for hairstyle (i.e. services), my location, my price range and times I am available.
+
 (2) As a customer with limited travel options, I want the search criteria to find barbers close to me.
+
 (3) As a customer with a budget, I want the search criteria to find a barber who won't charge more than my max price range for the service desired.
+
 (4) As a customer with a tight schedule, I the search criteria to filter on a barber that will be free when I am free.
+
 (5) As a customer who values customer service, I want the search results to group by highest to lowest customer rating.
+
 (6) As a customer who is on a tight schedule, I want to be able to book appointments with my selected barber through the app without having to call them.
+
 (7) As a customer, I want to have a phone number of the barber and location to their shop, just in case I need to call or cannot find it.
+
 (8) As a customer who enjoyed my experience, I want to be able to give the barber a high rating (or low rating if I did not).
+
 (9) As a customer who likes their barber and has been asked by people who cuts their hair, I want to be able to add my barber to the database (if they aren't already there).
