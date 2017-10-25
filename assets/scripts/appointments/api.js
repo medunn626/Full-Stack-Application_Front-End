@@ -24,18 +24,11 @@ const getAppointments = function () {
   })
 }
 
-const updateAppointment = function (id, barberId, customerId, userId, date) {
+const updateAppointment = function (data, id) {
   return $.ajax({
     url: config.apiOrigin + '/appointments/' + id,
     method: 'PATCH',
-    data: {
-      'appointment': {
-        'barber_id': barberId,
-        'customer_id': customerId,
-        'user_id': userId,
-        'date': date
-      }
-    },
+    data,
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

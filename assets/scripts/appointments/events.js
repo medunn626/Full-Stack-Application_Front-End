@@ -8,6 +8,7 @@ const appointmentDate = document.getElementById('appointment-date')
 const barberId = document.getElementById('appointment-barber-id')
 const customerId = document.getElementById('appointment-customer-id')
 const userId = document.getElementById('appointment-user-id')
+const apptId = document.getElementById('appointment-update-id')
 
 const onGetIds = function () {
   const getId = document.getElementById('barb-id')
@@ -35,8 +36,18 @@ const onGetAppointments = function () {
     .catch(ui.onError)
 }
 
+const onUpdateAppointment = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const id = apptId.value
+  api.updateAppointment(data, id)
+    .then(ui.onUpdateAppointmentSuccess)
+    .catch(ui.onError)
+}
+
 const addHandlers = function () {
   $('#make-appointment').on('submit', onCreateAppointment)
+  $('#update-appointment').on('submit', onUpdateAppointment)
 }
 
 module.exports = {

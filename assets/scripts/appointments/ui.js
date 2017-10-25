@@ -5,7 +5,6 @@ const api = require('./api')
 const showAppointmentsTemplate = require('../templates/appointments-listing.handlebars')
 const appointmentModal = document.getElementById('appointment-modal')
 const appointmentUpdateModal = document.getElementById('appointment-update-modal')
-const getFormFields = require('../../../lib/get-form-fields')
 
 const onCreateAppointmentSuccess = function (data) {
   store.appointment = data.appointment
@@ -25,20 +24,7 @@ const onGetAppointmentsSuccess = function (data) {
     $('.update').on('click', function (event) {
       event.preventDefault()
       $('div.update').removeClass('hide-content')
-      const getId = document.getElementById('appt-id')
-      const id = getId.getAttribute('data-id')
-      const getBarbId = document.getElementById('appt-barb-id')
-      const barberId = getBarbId.getAttribute('data-id')
-      const customerId = store.customer.id
-      const userId = store.user.id
       appointmentUpdateModal.style.display = 'block'
-      $('#update-appointment').on('submit', function (event) {
-        event.preventDefault()
-        const date = getFormFields(this)
-        api.updateAppointment(id, barberId, customerId, userId, date)
-          .then(onUpdateAppointmentSuccess)
-          .catch(onError)
-      })
     })
     $('.cancel').on('click', function (event) {
       event.preventDefault()
