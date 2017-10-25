@@ -1,0 +1,12 @@
+
+{{#each appointments as |appointment|}}
+
+  <ul id="appt-id" data-id="{{appointment.id}}">
+    <h5 class="name-result">Appointment W/ {{appointment.barber.name}}</h5>
+    <li>Date/Time: {{appointment.date}}</li>
+    <li>Service: {{appointment.barber.services}}</li>
+    <li><button class="cancel">Cancel</button></li>
+  </ul>
+  <br>
+
+{{/each}}

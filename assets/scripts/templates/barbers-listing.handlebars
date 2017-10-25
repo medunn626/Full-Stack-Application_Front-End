@@ -1,7 +1,7 @@
 <div class="barbers-result">
 {{#each barbers as |barber|}}
 
-  <ul data-id="{{barber.id}}">
+  <ul id="barbs-id" data-id="{{barber.id}}">
     <h5 class="name-result">{{barber.name}}:</h5>
     <li>Shop: {{barber.shop_name}}</li>
     <li>Phone: {{barber.phone}}</li>
@@ -11,6 +11,7 @@
     <li>Busiest Day: {{barber.busiest_day}}</li>
     <li>Busiest Time: {{barber.busiest_time}}</li>
     <li>Rating: {{barber.average_rating}}</li>
+    <li><button class="appointment">Make Appointment</button></li>
   </ul>
   <br>
 

@@ -4,6 +4,7 @@ const store = require('./../store')
 const showBarbersTemplate = require('../templates/barbers-listing.handlebars')
 const showBarberTemplate = require('../templates/barber-listing.handlebars')
 const barberId = document.getElementById('barber-id')
+const appointmentModal = document.getElementById('appointment-modal')
 
 // Free form search
 const userZip = document.getElementById('zip')
@@ -11,13 +12,6 @@ const userPrice = document.getElementById('price')
 const userDay = document.getElementById('day')
 const userTime = document.getElementById('time')
 const userStyle = document.getElementById('style')
-
-// Quick search
-// const savedZip = store.customer.zip
-// const savedPrice = store.customer.max_price
-// const savedDay = store.customer.best_day
-// const savedTime = store.customer.best_time
-// const savedStyle = store.customer.services
 
 const onGetBarberIdSuccess = function (data) {
   console.log(data)
@@ -63,11 +57,17 @@ const onGetBarberSuccess = function (data) {
   document.getElementById('credentials').reset()
   $('div.credentials').addClass('hide-content')
   $('div.find-form').append(showBarberHtml)
+  $('.appointment').on('click', function () {
+    appointmentModal.style.display = 'block'
+  })
   $('.see-more').on('click', function () {
     $('div.barber-result').addClass('hide-content')
     $('.find-form').append(showBarbersHtml)
     $('.failure').text('')
     $('.success').text('We found you some more options.')
+    $('.appointment').on('click', function () {
+      appointmentModal.style.display = 'block'
+    })
     $('.clear').on('click', function () {
       $('div.barbers-result').addClass('hide-content')
       $('div.credentials').removeClass('hide-content')

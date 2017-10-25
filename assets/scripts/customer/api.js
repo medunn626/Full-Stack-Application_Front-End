@@ -25,38 +25,19 @@ const getCustomer = function () {
   })
 }
 
-const updateCustomer = function (data) {
-  return $.ajax({
-    url: config.apiOrigin + '/customers' + store.customers.id,
-    method: 'PATCH',
-    data,
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
-// const update = function (data) {
+// const updateCustomer = function (data, id) {
 //   return $.ajax({
-//     url: config.apiOrigin + '/games/' + store.game.id,
+//     url: config.apiOrigin + '/customers/' + id,
 //     method: 'PATCH',
+//     data,
 //     headers: {
 //       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: {
-//       'game': {
-//         'cells': {
-//           'index': this.id,
-//           'value': store.game.cells[this.id]
-//         },
-//         'over': store.game.over
-//       }
 //     }
 //   })
 // }
 
 module.exports = {
   createCustomer,
-  getCustomer,
-  updateCustomer
+  getCustomer
+  // updateCustomer
 }

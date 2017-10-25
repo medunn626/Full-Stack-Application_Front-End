@@ -2,6 +2,7 @@
 
 const store = require('./../store')
 const customerEvents = require('../customer/events')
+const appointmentEvents = require('../appointments/events')
 
 const modal = document.getElementById('account')
 const email = document.getElementById('email')
@@ -12,7 +13,6 @@ const newConfirm = document.getElementById('new-confirm')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 const searchSubmit = document.getElementById('find-submit')
-const findText = document.getElementById('find-panel-link')
 
 const signUpSuccess = function (data) {
   console.log(data)
@@ -41,6 +41,7 @@ const signInSuccess = function (data) {
   $('div.account-heading').html('Your Account')
   searchSubmit.value = 'Save & Search'
   customerEvents.onGetCustomer()
+  appointmentEvents.onGetAppointments()
 }
 
 const signInFailure = function () {
@@ -84,7 +85,6 @@ const signOutSuccess = function () {
   $('div.barber-result').addClass('hide-content')
   $('div.credentials').removeClass('hide-content')
   searchSubmit.value = 'Search'
-  findText.text = 'Answer some quick questions about your preferences!'
 }
 
 const signOutFailure = function () {

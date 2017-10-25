@@ -7,8 +7,8 @@ const newPassword = document.getElementById('new-password')
 const newConfirm = document.getElementById('new-confirm')
 
 const onSignUp = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   if (newPassword.value === newConfirm.value) {
     api.signUp(data)
       .then(ui.signUpSuccess)
@@ -19,16 +19,16 @@ const onSignUp = function (event) {
 }
 
 const onSignIn = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
 
 const onChangePassword = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)

@@ -6,21 +6,17 @@ const api = require('./api')
 const ui = require('./ui')
 const userId = document.getElementById('user-id')
 const customerName = document.getElementById('customer-name')
-// const barberId = document.getElementById('barber-id')
-// const userZip = document.getElementById('zip')
-// const userPrice = document.getElementById('price')
-// const showBarbersTemplate = require('../templates/barbers-listing.handlebars')
-// const barberName = document.getElementById('barber-name')
-// const barberShop = document.getElementById('barber-shop')
-// const barberPhone = document.getElementById('phone')
-// const barberPrice = document.getElementById('barber-price')
-// const barberZip = document.getElementById('barber-zip')
-// const barberRate = document.getElementById('barber-rating')
+// const customerId = document.getElementById('customer-id')
 
 const onGetUserId = function () {
   userId.value = (store.user.id + '')
   console.log(userId.value)
 }
+
+// const onGetCustomerId = function () {
+//   customerId.value = (store.customer.id + '')
+//   console.log(customerId.value)
+// }
 
 const onCreateCustomer = function () {
   onGetUserId()
@@ -41,21 +37,24 @@ const onGetCustomer = function () {
     .catch(ui.onError)
 }
 
-const onUpdateCustomer = function (event) {
-  const data = event.target
-  const customer = data.customer
-  event.preventDefault()
-  api.updateCustomer(customer)
-    .then(ui.onUpdateCustomer)
-    .catch(ui.onError)
-}
+// const onUpdateCustomer = function (event) {
+//   onGetUserId()
+//   onGetCustomerId()
+//   const data = getFormFields(this)
+//   const id = customerId.value
+//   event.preventDefault()
+//   api.updateCustomer(data, id)
+//     .then(ui.onUpdateCustomer)
+//     .then(onGetCustomer)
+//     .catch(ui.onError)
+// }
 
 const addHandlers = function () {
-  if (ui.customerExist === false) {
-    $('#credentials').on('submit', onCreateCustomer)
-  } else {
-    $('#credentials').on('submit', onUpdateCustomer)
-  }
+  // if (ui.customerExist === false) {
+  $('#credentials').on('submit', onCreateCustomer)
+  // } else {
+  //   $('#credentials').on('submit', onUpdateCustomer)
+  // }
 }
 
 module.exports = {

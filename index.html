@@ -92,12 +92,66 @@
               </div>
             </div>
           </div>
+          <!-- Sign In/Sign Up Form, which becomes Your Account on log in -->
+          <div class="col-lg-6 col-md-6 col-sm-12 log-in">
+            <div class="panel panel-default">
+              <div class="panel-heading account-heading">Log in to Account</div>
+              <div class="panel-body">
+                <!-- Log In Form -->
+                <div class="log-in-form">
+                <form id="log-in">
+                  <fieldset>
+                    <input type="text" id="email" name="credentials[email]" placeholder="Email"><br>
+                    <input type="password" id="password" name="credentials[password]" placeholder="Password"><br>
+                    <input type="submit" name="submit" value="Log In!">
+                  </fieldset>
+                  </form>
+                </div>
+                  <br>
+                  <!-- Sign up Form -->
+                  <div class="registration-form">
+                  <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
+                <form id="sign-up" class="collapse">
+                  <fieldset>
+                    <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
+                    <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
+                    <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
+                    <input type="submit" name="submit" value="Sign up!">
+                    <h5> Don't worry, you will not receive any spam mail!</h5>
+                  </fieldset>
+                </form>
+                <!-- Pitch to get users to sign up -->
+              </div>
+                  <div class="pitch">
+                  <h4>With a Registered Account, You Can:</h4>
+                  <ul>
+                    <li>Save your preferrences</li>
+                    <li>Make appointments online</li>
+                    <li>Recommend barbers to us</li>
+                  </ul>
+                </div>
+                <!-- Area to display saved customer info. Hidden until customer created. -->
+                <div class="saved-info-section hide-content"></div>
+                <div class="quick-search hide-content">
+                  <input type="submit" id="quick-search" name="submit" value="Quick Search"><br><br>
+                </div>
+                <!-- Area to change password or log out -->
+                <div class="your-account hide-content">
+                  <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>
+                  <input type="submit" id="log-out" name="submit" value="Log Out">
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Book Appointments Form  -->
           <div class="col-lg-6 col-md-6 col-sm-12 appointments hide-content">
             <div class="panel panel-default">
               <div class="panel-heading">Your Appointments</div>
               <div class="panel-body">
                 <a href="#appointment-info" data-toggle="collapse">See your upcoming appointments!</a><br><br>
+                <form id="appointment-info">
+                  <div class="show-appointments"></div>
+                </form>
               </div>
             </div>
           </div>
@@ -165,58 +219,8 @@
               </div>
             </div>
           </div>
-          <!-- Sign In/Sign Up Form, which becomes Your Account on log in -->
-          <div class="col-lg-6 col-md-6 col-sm-12 log-in">
-            <div class="panel panel-default">
-              <div class="panel-heading account-heading">Log in to Account</div>
-              <div class="panel-body">
-                <!-- Log In Form -->
-                <div class="log-in-form">
-                <form id="log-in">
-                  <fieldset>
-                    <input type="text" id="email" name="credentials[email]" placeholder="Email"><br>
-                    <input type="password" id="password" name="credentials[password]" placeholder="Password"><br>
-                    <input type="submit" name="submit" value="Log In!">
-                  </fieldset>
-                  </form>
-                </div>
-                  <br>
-                  <!-- Sign up Form -->
-                  <div class="registration-form">
-                  <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
-                <form id="sign-up" class="collapse">
-                  <fieldset>
-                    <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
-                    <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
-                    <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
-                    <input type="submit" name="submit" value="Sign up!">
-                    <h5> Don't worry, you will not receive any spam mail!</h5>
-                  </fieldset>
-                </form>
-                <!-- Pitch to get users to sign up -->
-              </div>
-                  <div class="pitch">
-                  <h4>With a Registered Account, You Can:</h4>
-                  <ul>
-                    <li>Save your preferrences</li>
-                    <li>Make appointments online</li>
-                    <li>Recommend barbers to us</li>
-                  </ul>
-                </div>
-                <!-- Area to display saved customer info. Hidden until customer created. -->
-                <div class="saved-info-section hide-content"></div>
-                <div class="quick-search hide-content">
-                  <input type="submit" id="quick-search" name="submit" value="Quick Search"><br><br>
-                </div>
-                <!-- Area to change password or log out -->
-                <div class="your-account hide-content">
-                  <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>
-                  <input type="submit" id="log-out" name="submit" value="Log Out">
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Change Password link will trigger password change modal -->
+
+          <!-- Change Password button will trigger this password change modal -->
               <div id="account" class="modal">
                 <div class="modal-content">
                   <span class="close" id="close">&times;</span>
@@ -231,6 +235,25 @@
                   </form>
                 </div>
               </div>
+
+              <!-- Book Appointment button will trigger this modal -->
+                  <div id="appointment-modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close" id="close-appointments">&times;</span>
+                      <form id="make-appointment">
+                        <fieldset>
+                          <legend>Make An Appointment!</legend>
+                          <h5 class="appointment-modal-failure"></h5>
+                          <label for="appointment-date">Date/Time:</label>
+                          <input type="datetime-local" id="appointment-date" name="appointment[date]"><br>
+                          <input type="hidden" name="appointment[barber_id]" class="barb-id" id="appointment-barber-id" value="">
+                          <input type="hidden" name="appointment[customer_id]" class="cust-id" id="appointment-customer-id" value="">
+                          <input type="hidden" name="appointment[user_id]" class="user-id" id="appointment-user-id" value="">
+                          <input type="submit" name="submit" value="Book Appointment">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
         </div>
     </body>
 </html>

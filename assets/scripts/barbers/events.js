@@ -14,6 +14,7 @@ const barberPhone = document.getElementById('phone')
 const barberPrice = document.getElementById('barber-price')
 const barberZip = document.getElementById('barber-zip')
 const barberRate = document.getElementById('barber-rating')
+const appointmentModal = document.getElementById('appointment-modal')
 
 const onGetBarberId = function (event) {
   event.preventDefault()
@@ -48,6 +49,9 @@ const onGetBarber = function () {
     document.getElementById('credentials').reset()
     $('div.credentials').addClass('hide-content')
     $('.find-form').append(showBarbersHtml)
+    $('.appointment').on('click', function () {
+      appointmentModal.style.display = 'block'
+    })
     $('.clear').on('click', function () {
       $('div.barbers-result').addClass('hide-content')
       $('div.credentials').removeClass('hide-content')
@@ -56,9 +60,9 @@ const onGetBarber = function () {
 }
 
 const onCreateBarber = function (event) {
+  event.preventDefault()
   const data = getFormFields(this)
   console.log(data)
-  event.preventDefault()
   if (barberName.value !== '' && barberShop.value !== '' && barberShop.value !== '' && barberPhone.value !== '' && barberPrice.value !== '' && barberZip.value !== '' && barberRate.value !== '') {
     api.createBarber(data)
       .then(ui.onCreateBarberSuccess)

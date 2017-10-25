@@ -5,6 +5,7 @@ const config = require('./config')
 const authEvents = require('./auth/events')
 const barberEvents = require('./barbers/events')
 const customerEvents = require('./customer/events')
+const appointmentEvents = require('./appointments/events')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 
@@ -49,25 +50,31 @@ $(() => {
   $('#close').on('click', closeModal)
 })
 
-// Hide/show quick search button:
+// Appointments modal variables and functions:
+const appointmentModal = document.getElementById('appointment-modal')
+const closeAppointmentModal = function () {
+  appointmentModal.style.display = 'none'
+}
+$(() => {
+  $('#close-appointments').on('click', closeAppointmentModal)
+  $('.appointment-modal-failure').text('')
+})
 
+// Hide/show quick search button:
 const hideQuickSearch = function () {
   $('div.quick-search').addClass('hide-content')
 }
 $(() => {
   $('#quick-search').on('click', hideQuickSearch)
 })
+$(() => {
+  $('#credentials').on('submit', hideQuickSearch)
+})
 
 // Handlers:
-
 $(() => {
   authEvents.addHandlers()
   barberEvents.addHandlers()
   customerEvents.addHandlers()
+  appointmentEvents.addHandlers()
 })
-
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
-
-// use require without a reference to ensure a file is bundled
-// require('./example')
