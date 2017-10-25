@@ -21,13 +21,11 @@ const onCreateAppointment = function (event) {
   event.preventDefault()
   onGetIds()
   const data = getFormFields(this)
-  if (store.user !== null && appointmentDate.value !== '') {
+  if (store.user !== null || appointmentDate.value !== '') {
     api.createAppointment(data)
       .then(ui.onCreateAppointmentSuccess)
       .then(onGetAppointments)
       .catch(ui.onCreateAppointmentFailure)
-  } else {
-    $('.appointment-modal-failure').text('Please provide a date and time.')
   }
 }
 

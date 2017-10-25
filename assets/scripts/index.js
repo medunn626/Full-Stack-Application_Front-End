@@ -32,7 +32,7 @@ $('.zip').on('keypress', isNumberKey)
 $('.price').on('keypress', isNumberKey)
 $('.phone').on('keypress', isNumberKey)
 
-// Change password modal variables and functions:
+// Change Password modal variables and functions:
 const modal = document.getElementById('account')
 const openModal = function () {
   modal.style.display = 'block'
@@ -50,7 +50,7 @@ $(() => {
   $('#close').on('click', closeModal)
 })
 
-// Appointments modal variables and functions:
+// Book Appointments modal variables and functions:
 const appointmentModal = document.getElementById('appointment-modal')
 const closeAppointmentModal = function () {
   appointmentModal.style.display = 'none'
@@ -58,6 +58,16 @@ const closeAppointmentModal = function () {
 $(() => {
   $('#close-appointments').on('click', closeAppointmentModal)
   $('.appointment-modal-failure').text('')
+})
+
+// Update Appointments modal variables and functions:
+const appointmentUpdateModal = document.getElementById('appointment-update-modal')
+const closeAppointmentUpdateModal = function () {
+  appointmentUpdateModal.style.display = 'none'
+}
+$(() => {
+  $('#close-appointment-update').on('click', closeAppointmentUpdateModal)
+  $('.appointment-update-modal-failure').text('')
 })
 
 // Hide/show quick search button:

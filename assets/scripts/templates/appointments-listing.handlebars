@@ -4,7 +4,9 @@
   <ul id="appt-id" data-id="{{appointment.id}}">
     <h5 class="name-result">Appointment W/ {{appointment.barber.name}}</h5>
     <li>Date/Time: {{appointment.date}}</li>
+    <li id="appt-barb-id" data-id="{{appointment.barber.id}}">Phone #: {{appointment.barber.phone}}</li>
     <li>Service: {{appointment.barber.services}}</li>
+    <li><button class="update">Update</button></li>
     <li><button class="cancel">Cancel</button></li>
   </ul>
   <br>

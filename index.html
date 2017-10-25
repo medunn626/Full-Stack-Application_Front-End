@@ -3,10 +3,8 @@
     <head>
       <title>FindyMy Barber</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -34,61 +32,61 @@
               <div class="panel-heading">Find a Barber</div>
               <div class="panel-body find-form">
                 <div class="credentials">
-                <a href="#credentials" id="find-panel-link" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
-                <form class="collapse" id="credentials">
-                  <fieldset>
-                    <input type="hidden" name="barber[id]" class="barb-id" id="barber-id" value="">
-                    <input type="hidden" name="customer[id]" class="cust-id" id="customer-id" value="">
-                    <input type="hidden" name="customer[user_id]" class="user-id" id="user-id" value="">
-                    <label for="zip">Zip Code:</label>
-                    <input type="text" name="customer[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
-                    <label for="price">Max Price: $</label>
-                    <input type="text" name="customer[max_price]" class="price" id="price" size="5" maxlength="3" placeholder="Price"><br>
-                    <label for="day">Best Day:</label>
-                    <select id="day" name="customer[best_day]">
-                      <option value="Monday">Monday</option>
-                      <option value="Tuesday">Tuesday</option>
-                      <option value="Wednesday">Wednesday</option>
-                      <option value="Thursday">Thursday</option>
-                      <option value="Friday">Friday</option>
-                      <option value="Saturday">Saturday</option>
-                      <option value="Sunday">Sunday</option>
-                    </select>
-                    <br>
-                    <label for="time">Best Time Range:</label>
-                    <select id="time" name="customer[best_time]">
-                      <option value="9:00">9-10AM</option>
-                      <option value="10:00">10-11AM</option>
-                      <option value="11:00">11-12noon</option>
-                      <option value="12:00">12-1PM</option>
-                      <option value="1:00">1-2PM</option>
-                      <option value="2:00">2-3PM</option>
-                      <option value="3:00">3-4PM</option>
-                      <option value="4:00">4-5PM</option>
-                      <option value="5:00">5-6PM</option>
-                      <option value="6:00">6-7PM</option>
-                      <option value="7:00">7-8PM</option>
-                    </select>
-                    <br>
-                    <label for="services">Your Hairstyle:</label><br>
-                    <select id="style" name="customer[services]">
-                      <option value="Full Cut">Full Cut</option>
-                      <option value="Fade and lineup">Fade and Lineup</option>
-                      <option value="Man Bun">Man-Bun</option>
-                      <option value="Mohawk">Mohawk/Frohawk</option>
-                      <option value="Side Part">Side Part</option>
-                      <option value="Taper fade">Taper Fade</option>
-                      <option value="Other">Other</option>
-                    </select><br><br>
-                    <div class="customer-name hide-content">
-                    <label for="customer-name">Your Name:</label>
-                    <input type="text" id="customer-name" name="customer[name]" placeholder="Name"><br>
-                    <h5>This is so we can save your preferences and book you appointments.</h5><br>
-                  </div>
-                    <input type="submit" name="submit" id="find-submit" value="Search">
-                  </fieldset>
-                </form>
-              </div>
+                  <a href="#credentials" id="find-panel-link" data-toggle="collapse">Answer some quick questions about your preferences!</a><br><br>
+                  <form class="collapse" id="credentials">
+                    <fieldset>
+                      <input type="hidden" name="barber[id]" class="barb-id" id="barber-id" value="">
+                      <input type="hidden" name="customer[id]" class="cust-id" id="customer-id" value="">
+                      <input type="hidden" name="customer[user_id]" class="user-id" id="user-id" value="">
+                      <label for="zip">Zip Code:</label>
+                      <input type="text" name="customer[zip]" class="zip" id="zip" size="5" maxlength="5" placeholder="Zip"><br>
+                      <label for="price">Max Price: $</label>
+                      <input type="text" name="customer[max_price]" class="price" id="price" size="5" maxlength="3" placeholder="Price"><br>
+                      <label for="day">Best Day:</label>
+                      <select id="day" name="customer[best_day]">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                      </select>
+                      <br>
+                      <label for="time">Best Time Range:</label>
+                      <select id="time" name="customer[best_time]">
+                        <option value="9:00">9-10AM</option>
+                        <option value="10:00">10-11AM</option>
+                        <option value="11:00">11-12noon</option>
+                        <option value="12:00">12-1PM</option>
+                        <option value="1:00">1-2PM</option>
+                        <option value="2:00">2-3PM</option>
+                        <option value="3:00">3-4PM</option>
+                        <option value="4:00">4-5PM</option>
+                        <option value="5:00">5-6PM</option>
+                        <option value="6:00">6-7PM</option>
+                        <option value="7:00">7-8PM</option>
+                      </select>
+                      <br>
+                      <label for="services">Your Hairstyle:</label><br>
+                      <select id="style" name="customer[services]">
+                        <option value="Full Cut">Full Cut</option>
+                        <option value="Fade and lineup">Fade and Lineup</option>
+                        <option value="Man Bun">Man-Bun</option>
+                        <option value="Mohawk">Mohawk/Frohawk</option>
+                        <option value="Side Part">Side Part</option>
+                        <option value="Taper fade">Taper Fade</option>
+                        <option value="Other">Other</option>
+                      </select><br><br>
+                      <div class="customer-name hide-content">
+                        <label for="customer-name">Your Name:</label>
+                        <input type="text" id="customer-name" name="customer[name]" placeholder="Name"><br>
+                        <h5>This is so we can save your preferences and book you appointments.</h5><br>
+                      </div>
+                      <input type="submit" name="submit" id="find-submit" value="Search">
+                    </fieldset>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -107,68 +105,120 @@
                   </fieldset>
                   </form>
                 </div>
-                  <br>
-                  <!-- Sign up Form -->
-                  <div class="registration-form">
+                <br>
+                <!-- Sign up Form -->
+                <div class="registration-form">
                   <a href="#sign-up" data-toggle="collapse" class="register">Not a member? Register now!</a>
-                <form id="sign-up" class="collapse">
-                  <fieldset>
-                    <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
-                    <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
-                    <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
-                    <input type="submit" name="submit" value="Sign up!">
-                    <h5> Don't worry, you will not receive any spam mail!</h5>
-                  </fieldset>
-                </form>
-                <!-- Pitch to get users to sign up -->
-              </div>
+                  <form id="sign-up" class="collapse">
+                    <fieldset>
+                      <input type="text" id="new-email" name="credentials[email]" placeholder="Your Email"><br>
+                      <input type="password" id="new-password" name="credentials[password]" placeholder="Create Password"><br>
+                      <input type="password" id="new-confirm" name="credentials[password-confirmation]" placeholder="Confirm Password"><br>
+                      <input type="submit" name="submit" value="Sign up!">
+                      <h5> Don't worry, you will not receive any spam mail!</h5>
+                    </fieldset>
+                  </form>
+                  </div>
+                  <!-- Pitch to get users to sign up -->
                   <div class="pitch">
-                  <h4>With a Registered Account, You Can:</h4>
-                  <ul>
-                    <li>Save your preferrences</li>
-                    <li>Make appointments online</li>
-                    <li>Recommend barbers to us</li>
-                  </ul>
-                </div>
-                <!-- Area to display saved customer info. Hidden until customer created. -->
-                <div class="saved-info-section hide-content"></div>
-                <div class="quick-search hide-content">
-                  <input type="submit" id="quick-search" name="submit" value="Quick Search"><br><br>
-                </div>
-                <!-- Area to change password or log out -->
-                <div class="your-account hide-content">
-                  <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>
-                  <input type="submit" id="log-out" name="submit" value="Log Out">
+                    <h4>With a Registered Account, You Can:</h4>
+                    <ul>
+                      <li>Save your preferrences</li>
+                      <li>Make appointments online</li>
+                      <li>Recommend barbers to us</li>
+                    </ul>
+                  </div>
+                  <!-- Area to display saved customer info. Hidden until customer created. -->
+                  <div class="saved-info-section hide-content"></div>
+                  <div class="quick-search hide-content">
+                    <input type="submit" id="quick-search" name="submit" value="Quick Search"><br><br>
+                  </div>
+                  <!-- Area to change password or log out -->
+                  <div class="your-account hide-content">
+                    <input type="submit" name="submit" id="account-modal" value="Change Password"><br><br>
+                    <input type="submit" id="log-out" name="submit" value="Log Out">
+                  </div>
+                  <!-- Change Password button will trigger this password change modal -->
+                  <div id="account" class="modal">
+                    <div class="modal-content">
+                      <span class="close" id="close">&times;</span>
+                      <form id="change-password">
+                        <fieldset>
+                          <legend>Would you like to change your password?</legend>
+                          <h5 class="modal-failure"></h5>
+                          <input type="password" id="old" name="passwords[old]" placeholder="Old Password"><br>
+                          <input type="password" id="new" name="passwords[new]" placeholder="New Password"><br>
+                          <input type="submit" name="submit" value="Change Password">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- Book Appointments Form  -->
-          <div class="col-lg-6 col-md-6 col-sm-12 appointments hide-content">
-            <div class="panel panel-default">
+            <!-- Appointments Area -->
+            <div class="col-lg-6 col-md-6 col-sm-12 appointments hide-content">
+              <div class="panel panel-default">
               <div class="panel-heading">Your Appointments</div>
               <div class="panel-body">
                 <a href="#appointment-info" data-toggle="collapse">See your upcoming appointments!</a><br><br>
                 <form id="appointment-info">
                   <div class="show-appointments"></div>
                 </form>
+                <!-- Book Appointment button will trigger this modal -->
+                <div id="appointment-modal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close-appointments">&times;</span>
+                    <form id="make-appointment">
+                      <fieldset>
+                        <legend>Make An Appointment!</legend>
+                          <h5 class="appointment-modal-failure"></h5>
+                          <div class="appt-date">
+                            <label for="appointment-date">Date/Time:</label>
+                            <input type="datetime-local" id="appointment-date" name="appointment[date]"><br>
+                          </div>
+                          <input type="hidden" name="appointment[barber_id]" class="barb-id" id="appointment-barber-id" value="">
+                          <input type="hidden" name="appointment[customer_id]" class="cust-id" id="appointment-customer-id" value="">
+                          <input type="hidden" name="appointment[user_id]" class="user-id" id="appointment-user-id" value="">
+                          <input type="submit" name="submit" value="Book Appointment">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Update Appointments button will trigger this modal -->
+                  <div id="appointment-update-modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close" id="close-appointment-update">&times;</span>
+                      <form id="update-appointment">
+                        <fieldset>
+                          <legend>Update Your Appointment</legend>
+                          <h5 class="appointment-modal-failure"></h5>
+                          <div class="appt-date">
+                            <label for="appointment-date">Date/Time:</label>
+                            <input type="datetime-local" id="appointment-update-date" name="appointment[date]"><br>
+                          </div>
+                          <input type="submit" name="submit" value="Update Appointment">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- Recommend a Barber Form -->
-          <div class="ccol-lg-6 col-md-6 col-sm-12 recommend hide-content">
-            <div class="panel panel-default">
-              <div class="panel-heading">Recommend A Barber</div>
-              <div class="panel-body">
-                <a href="#barber-info" data-toggle="collapse">Tell us about your favorite barber!</a><br><br>
-                <form class="collapse" id="barber-info">
-                  <fieldset>
-                    <label for="barber-name">Barber Name:</label>
-                    <input type="text" name="barber[name]" id="barber-name" placeholder="Name"><br>
-                    <label for="barber-shop">Shop Name:</label>
-                    <input type="text" name="barber[shop_name]" id="barber-shop" placeholder="Shop Name"><br>
-                    <label for="phone">Phone Number:</label>
-                    <input type="text" name="barber[phone]" class=
+            <!-- Recommend a Barber Form -->
+            <div class="ccol-lg-6 col-md-6 col-sm-12 recommend hide-content">
+              <div class="panel panel-default">
+                <div class="panel-heading">Recommend A Barber</div>
+                <div class="panel-body">
+                  <a href="#barber-info" data-toggle="collapse">Tell us about your favorite barber!</a><br><br>
+                  <form class="collapse" id="barber-info">
+                    <fieldset>
+                      <label for="barber-name">Barber Name:</label>
+                      <input type="text" name="barber[name]" id="barber-name" placeholder="Name"><br>
+                      <label for="barber-shop">Shop Name:</label>
+                      <input type="text" name="barber[shop_name]" id="barber-shop" placeholder="Shop Name"><br>
+                      <label for="phone">Phone Number:</label>
+                      <input type="text" name="barber[phone]" class=
                     "phone" id="phone" size="12" maxlength="10" placeholder="Phone"><br>
                     <label for="zip">Zip Code:</label>
                     <input type="text" name="barber[zip]" class="zip" id="barber-zip" size="5" maxlength="5" placeholder="Zip"><br>
@@ -219,41 +269,6 @@
               </div>
             </div>
           </div>
-
-          <!-- Change Password button will trigger this password change modal -->
-              <div id="account" class="modal">
-                <div class="modal-content">
-                  <span class="close" id="close">&times;</span>
-                  <form id="change-password">
-                    <fieldset>
-                      <legend>Would you like to change your password?</legend>
-                      <h5 class="modal-failure"></h5>
-                      <input type="password" id="old" name="passwords[old]" placeholder="Old Password"><br>
-                      <input type="password" id="new" name="passwords[new]" placeholder="New Password"><br>
-                      <input type="submit" name="submit" value="Change Password">
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-
-              <!-- Book Appointment button will trigger this modal -->
-                  <div id="appointment-modal" class="modal">
-                    <div class="modal-content">
-                      <span class="close" id="close-appointments">&times;</span>
-                      <form id="make-appointment">
-                        <fieldset>
-                          <legend>Make An Appointment!</legend>
-                          <h5 class="appointment-modal-failure"></h5>
-                          <label for="appointment-date">Date/Time:</label>
-                          <input type="datetime-local" id="appointment-date" name="appointment[date]"><br>
-                          <input type="hidden" name="appointment[barber_id]" class="barb-id" id="appointment-barber-id" value="">
-                          <input type="hidden" name="appointment[customer_id]" class="cust-id" id="appointment-customer-id" value="">
-                          <input type="hidden" name="appointment[user_id]" class="user-id" id="appointment-user-id" value="">
-                          <input type="submit" name="submit" value="Book Appointment">
-                        </fieldset>
-                      </form>
-                    </div>
-                  </div>
         </div>
-    </body>
+      </body>
 </html>

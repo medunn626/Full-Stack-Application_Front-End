@@ -14,10 +14,8 @@ const userTime = document.getElementById('time')
 const userStyle = document.getElementById('style')
 
 const onGetBarberIdSuccess = function (data) {
-  console.log(data)
   store.barbers = data.barbers
   barberId.value = ''
-  console.log(store.barbers.length)
   let i = 0
   while (i < store.barbers.length && barberId.value !== (store.barbers[i].id + '')) {
     if ((store.barbers[i].busiest_day !== userDay.value && store.barbers[i].busiest_time !== userTime.value) && (store.barbers[i].zip === userZip.value || store.barbers[i].max_price === userPrice.value || store.barbers[i].services === userStyle.value)) {
@@ -26,7 +24,6 @@ const onGetBarberIdSuccess = function (data) {
       i++
     }
   }
-  console.log(barberId.value)
 }
 
 const onGetBarberIdQuickSuccess = function (data) {
@@ -45,11 +42,9 @@ const onGetBarberIdQuickSuccess = function (data) {
       i++
     }
   }
-  console.log(barberId.value)
 }
 
 const onGetBarberSuccess = function (data) {
-  console.log(data)
   const showBarberHtml = showBarberTemplate({ barber: data.barber })
   const showBarbersHtml = showBarbersTemplate({ barbers: store.barbers })
   $('.failure').text('')
@@ -58,16 +53,18 @@ const onGetBarberSuccess = function (data) {
   $('div.credentials').addClass('hide-content')
   $('div.find-form').append(showBarberHtml)
   $('.appointment').on('click', function () {
-    appointmentModal.style.display = 'block'
+    if (store.user === undefined || store.user === null) {
+      $('.success').text('')
+      $('.failure').text('Please sign in to book an appointment.')
+    } else {
+      appointmentModal.style.display = 'block'
+    }
   })
   $('.see-more').on('click', function () {
     $('div.barber-result').addClass('hide-content')
     $('.find-form').append(showBarbersHtml)
     $('.failure').text('')
     $('.success').text('We found you some more options.')
-    $('.appointment').on('click', function () {
-      appointmentModal.style.display = 'block'
-    })
     $('.clear').on('click', function () {
       $('div.barbers-result').addClass('hide-content')
       $('div.credentials').removeClass('hide-content')
@@ -78,7 +75,6 @@ const onGetBarberSuccess = function (data) {
 
 const onCreateBarberSuccess = function (data) {
   store.barber = data.barber
-  console.log(data)
   $('.failure').text('')
   $('.success').text('Your barber has been successfully added.')
   document.getElementById('barber-info').reset()

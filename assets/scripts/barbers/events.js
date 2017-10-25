@@ -62,7 +62,6 @@ const onGetBarber = function () {
 const onCreateBarber = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
   if (barberName.value !== '' && barberShop.value !== '' && barberShop.value !== '' && barberPhone.value !== '' && barberPrice.value !== '' && barberZip.value !== '' && barberRate.value !== '') {
     api.createBarber(data)
       .then(ui.onCreateBarberSuccess)

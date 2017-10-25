@@ -15,7 +15,6 @@ const passwordChangeNew = document.getElementById('new')
 const searchSubmit = document.getElementById('find-submit')
 
 const signUpSuccess = function (data) {
-  console.log(data)
   $('.failure').text('')
   $('.success').text('You are now a member! Please sign in.')
   $('div.registration-form').addClass('hide-content')
@@ -28,7 +27,6 @@ const signUpFailure = function () {
 
 const signInSuccess = function (data) {
   store.user = data.user
-  console.log(store.user)
   $('.failure').text('')
   $('.success').text('You are now signed in.')
   $('div.log-in-form').addClass('hide-content')
