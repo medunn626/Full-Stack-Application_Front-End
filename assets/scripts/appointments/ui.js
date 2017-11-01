@@ -44,6 +44,10 @@ const onUpdateAppointmentSuccess = function () {
   appointmentUpdateModal.style.display = 'none'
 }
 
+const onUpdateAppointmentFailure = function () {
+  $('#update-appointment-modal-failure').text('Sorry, please try again.')
+}
+
 const onDeleteAppointmentSuccess = function () {
   $('.failure').text('')
   $('.success').text('Your appointment has been sucessfully cancelled.')
@@ -59,6 +63,7 @@ module.exports = {
   onCreateAppointmentFailure,
   onGetAppointmentsSuccess,
   onUpdateAppointmentSuccess,
+  onUpdateAppointmentFailure,
   onDeleteAppointmentSuccess,
   onError
 }

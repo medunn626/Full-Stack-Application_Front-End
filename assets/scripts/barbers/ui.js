@@ -3,6 +3,7 @@
 const store = require('./../store')
 const showBarbersTemplate = require('../templates/barbers-listing.handlebars')
 const showBarberTemplate = require('../templates/barber-listing.handlebars')
+const showBarberTemplateLoggedOut = require('../templates/barber-listing-signed-out.handlebars')
 const barberId = document.getElementById('barber-id')
 const appointmentModal = document.getElementById('appointment-modal')
 
@@ -45,20 +46,20 @@ const onGetBarberIdQuickSuccess = function (data) {
 }
 
 const onGetBarberSuccess = function (data) {
+  const showBarberHtmlLoggedOut = showBarberTemplateLoggedOut({ barber: data.barber })
   const showBarberHtml = showBarberTemplate({ barber: data.barber })
   const showBarbersHtml = showBarbersTemplate({ barbers: store.barbers })
   $('.failure').text('')
   $('.success').text('We found you a barber.')
   document.getElementById('credentials').reset()
   $('div.credentials').addClass('hide-content')
-  $('div.find-form').append(showBarberHtml)
+  if (store.user === undefined || store.user === null) {
+    $('div.find-form').append(showBarberHtmlLoggedOut)
+  } else {
+    $('div.find-form').append(showBarberHtml)
+  }
   $('.appointment').on('click', function () {
-    if (store.user === undefined || store.user === null) {
-      $('.success').text('')
-      $('.failure').text('Please sign in to book an appointment.')
-    } else {
-      appointmentModal.style.display = 'block'
-    }
+    appointmentModal.style.display = 'block'
   })
   $('.see-more').on('click', function () {
     $('div.barber-result').addClass('hide-content')
@@ -68,7 +69,6 @@ const onGetBarberSuccess = function (data) {
     $('.clear').on('click', function () {
       $('div.barbers-result').addClass('hide-content')
       $('div.credentials').removeClass('hide-content')
-      $('div.quick-search').removeClass('hide-content')
     })
   })
 }

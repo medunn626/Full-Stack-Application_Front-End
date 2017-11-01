@@ -161,7 +161,7 @@
               <div class="panel panel-default">
               <div class="panel-heading">Your Appointments</div>
               <div class="panel-body">
-                <a href="#appointment-info" data-toggle="collapse">See your upcoming appointments!</a><br><br>
+                <a href="#appointment-info" data-toggle="collapse" id="appointment-text">See your upcoming appointments!</a><br><br>
                 <form id="appointment-info">
                   <div class="show-appointments"></div>
                 </form>
@@ -192,7 +192,7 @@
                       <form id="update-appointment">
                         <fieldset>
                           <legend>Update Your Appointment</legend>
-                          <h5 class="appointment-modal-failure"></h5>
+                          <h5 class="appointment-modal-failure" id="update-appointment-modal-failure"></h5>
                           <div class="appt-date">
                             <label for="appointment-id">Appointment ID:</label>
                             <input type="text" name="appointment[id]" id="appointment-update-id"><br>

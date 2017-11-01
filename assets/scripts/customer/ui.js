@@ -23,7 +23,7 @@ const onGetCustomerSuccess = function (data) {
 
 const onError = function () {
   $('.success').text('')
-  $('.failure').text('There was an issue with your request.')
+  $('appointments-modal-failure').text('There was an issue with your request.')
 }
 
 module.exports = {

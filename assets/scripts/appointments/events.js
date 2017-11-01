@@ -42,7 +42,7 @@ const onUpdateAppointment = function (event) {
   const id = apptId.value
   api.updateAppointment(data, id)
     .then(ui.onUpdateAppointmentSuccess)
-    .catch(ui.onError)
+    .catch(ui.onUpdateAppointmentFailure)
 }
 
 const addHandlers = function () {
