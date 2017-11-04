@@ -16,20 +16,10 @@ const setToLoggedOut = function () {
   loggedIn = false
 }
 
-// const onGetUserId = function () {
-//   // userId.value = (store.user.id + '')
-//   $('input[name="customer[user_id]"]').val(store.user.id)
-// }
-
 const onCreateCustomer = function () {
-  // console.log('Stored User ID is' + store.user.id)
-  // console.log('Is the user logged in?' + loggedIn)
-  // console.log('Customer Name is' + customerName.value)
-  // console.log('User ID is' + userId.value)
   if (loggedIn === true && customerName.value !== '') {
     $('input[name="customer[user_id]"]').attr('value', store.user.id)
     const data = getFormFields(this)
-    console.log(data)
     api.createCustomer(data)
       .then(ui.onCreateCustomerSuccess)
       .then(onGetCustomer)

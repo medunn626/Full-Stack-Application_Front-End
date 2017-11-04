@@ -13,7 +13,6 @@ const newConfirm = document.getElementById('new-confirm')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 const searchSubmit = document.getElementById('find-submit')
-const appointmentText = document.getElementById('appointment-text')
 
 const signUpSuccess = function () {
   $('.failure').text('')
@@ -27,10 +26,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
-  console.log(data)
   store.user = data.user
   customerEvents.setToLoggedIn()
-  console.log('Is the user logged in?' + customerEvents.loggedIn)
   $('.failure').text('')
   $('.success').append('You are now signed in.')
   $('div.log-in-form').addClass('hide-content')
@@ -44,12 +41,6 @@ const signInSuccess = function (data) {
   searchSubmit.value = 'Save & Search'
   customerEvents.onGetCustomer()
   appointmentEvents.onGetAppointments()
-  console.log(store.appointments)
-  if (store.appointments === undefined || store.appointments === null) {
-    appointmentText.text = 'You currently have no appointments. Find a barber to book an appointment.'
-  } else {
-    appointmentText.text = 'See your upcoming appointments!'
-  }
 }
 
 const signInFailure = function () {
