@@ -10,12 +10,11 @@ const apptIdUpdate = document.getElementById('appointment-update-id')
 const apptIdDelete = document.getElementById('appointment-cancel-id')
 
 const onGetIds = function () {
-  const getId = document.getElementById('barb-id')
-  const id = getId.getAttribute('data-id')
+  const findElement = document.querySelectorAll('.unique')
+  const latestResult = findElement.length - 1
+  const selectLatest = findElement[latestResult]
+  const id = selectLatest.getAttribute('data-id')
   barberId.value = id
-  console.log(getId)
-  console.log(id)
-  console.log(barberId.value)
 }
 
 const onCreateAppointment = function (event) {
