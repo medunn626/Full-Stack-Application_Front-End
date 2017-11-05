@@ -29,7 +29,7 @@ const signInSuccess = function (data) {
   store.user = data.user
   customerEvents.setToLoggedIn()
   $('.failure').text('')
-  $('.success').append('You are now signed in.')
+  $('.success').text('You are now signed in.')
   $('div.log-in-form').addClass('hide-content')
   $('div.registration-form').addClass('hide-content')
   $('div.pitch').addClass('hide-content')

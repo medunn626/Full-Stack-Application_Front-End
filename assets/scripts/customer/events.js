@@ -4,7 +4,6 @@ const store = require('./../store')
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-// const userId = document.getElementById('user-id')
 const customerName = document.getElementById('customer-name')
 let loggedIn
 

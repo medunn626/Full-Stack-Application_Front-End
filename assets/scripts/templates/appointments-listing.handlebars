@@ -2,16 +2,16 @@
 {{#each appointments as |appointment|}}
 
   <ul id="appt-id" data-id="{{appointment.id}}">
-    <h5 class="name-result">{{appointment.id}}: Appointment W/ {{appointment.barber.name}}</h5>
-    <li>Date/Time: {{appointment.date}}</li>
-    <li id="appt-barb-id" data-id="{{appointment.barber.id}}">Phone #: {{appointment.barber.phone}}</li>
-    <li>Service: {{appointment.barber.services}}</li>
-    <li><button class="cancel">Cancel</button></li>
+    <h5 class="name-result">Appt # {{appointment.id}}:</h6>
+    <li>{{appointment.barber.services}} with {{appointment.barber.name}} at {{appointment.barber.shop_name}}</li>
+    <li>Date & Time: {{appointment.date}}</li>
+    <li>Phone #: {{appointment.barber.phone}}</li>
   </ul>
   <br>
 
 {{/each}}
 
 {{#if appointments}}
-<button class="update">Update</button>
+<button class="update">Update Times</button>
+<button class="cancel">Make Cancellation</button>
 {{/if}}

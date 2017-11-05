@@ -1,10 +1,10 @@
 'use strict'
 
 const store = require('./../store')
-const api = require('./api')
 const showAppointmentsTemplate = require('../templates/appointments-listing.handlebars')
 const appointmentModal = document.getElementById('appointment-modal')
 const appointmentUpdateModal = document.getElementById('appointment-update-modal')
+const appointmentCancelModal = document.getElementById('appointment-cancel-modal')
 
 const onCreateAppointmentSuccess = function (data) {
   store.appointment = data.appointment
@@ -13,7 +13,7 @@ const onCreateAppointmentSuccess = function (data) {
 }
 
 const onCreateAppointmentFailure = function () {
-  $('.appointment-modal-failure').text('Could not schedule appointment. Please ensure your date and time are accurate.')
+  $('#create-appointment-modal-failure').text('Could not schedule appointment. Please ensure your date and time are accurate.')
 }
 
 const onGetAppointmentsSuccess = function (data) {
@@ -28,12 +28,8 @@ const onGetAppointmentsSuccess = function (data) {
     })
     $('.cancel').on('click', function (event) {
       event.preventDefault()
-      const getId = document.getElementById('appt-id')
-      const id = getId.getAttribute('data-id')
-      api.deleteAppointment(id)
-        .then(onDeleteAppointmentSuccess)
-        .catch(onError)
-      $(this).parent().parent().hide()
+      $('div.cancel').removeClass('hide-content')
+      appointmentCancelModal.style.display = 'block'
     })
   }
 }
@@ -51,6 +47,11 @@ const onUpdateAppointmentFailure = function () {
 const onDeleteAppointmentSuccess = function () {
   $('.failure').text('')
   $('.success').text('Your appointment has been sucessfully cancelled.')
+  appointmentCancelModal.style.display = 'none'
+}
+
+const onDeleteAppointmentFailure = function () {
+  $('#cancel-appointment-modal-failure').text('Sorry, please try again.')
 }
 
 const onError = function () {
@@ -65,5 +66,6 @@ module.exports = {
   onUpdateAppointmentSuccess,
   onUpdateAppointmentFailure,
   onDeleteAppointmentSuccess,
+  onDeleteAppointmentFailure,
   onError
 }

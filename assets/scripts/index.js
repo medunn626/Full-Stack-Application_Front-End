@@ -8,6 +8,10 @@ const customerEvents = require('./customer/events')
 const appointmentEvents = require('./appointments/events')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
+const createDate = document.getElementById('appointment-date')
+const updateID = document.getElementById('appointment-update-id')
+const updateDate = document.getElementById('appointment-update-date')
+const cancelID = document.getElementById('appointment-cancel-id')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -54,20 +58,34 @@ $(() => {
 const appointmentModal = document.getElementById('appointment-modal')
 const closeAppointmentModal = function () {
   appointmentModal.style.display = 'none'
+  createDate.value = ''
+  $('.appointment-modal-failure').text('')
 }
 $(() => {
   $('#close-appointments').on('click', closeAppointmentModal)
-  $('.appointment-modal-failure').text('')
 })
 
 // Update Appointments modal variables and functions:
 const appointmentUpdateModal = document.getElementById('appointment-update-modal')
 const closeAppointmentUpdateModal = function () {
   appointmentUpdateModal.style.display = 'none'
+  updateID.value = ''
+  updateDate.value = ''
+  $('.appointment-modal-failure').text('')
 }
 $(() => {
   $('#close-appointment-update').on('click', closeAppointmentUpdateModal)
-  $('.appointment-update-modal-failure').text('')
+})
+
+// Cancel Appointments modal variables and functions:
+const appointmentCancelModal = document.getElementById('appointment-cancel-modal')
+const closeAppointmentCancelModal = function () {
+  appointmentCancelModal.style.display = 'none'
+  cancelID.value = ''
+  $('.appointment-modal-failure').text('')
+}
+$(() => {
+  $('#close-appointment-cancel').on('click', closeAppointmentCancelModal)
 })
 
 // Hide/show quick search button:

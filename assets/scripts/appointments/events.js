@@ -1,21 +1,21 @@
 'use strict'
 
-// const store = require('./../store')
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const appointmentDate = document.getElementById('appointment-date')
 const barberId = document.getElementById('appointment-barber-id')
-// const customerId = document.getElementById('appointment-customer-id')
-// const userId = document.getElementById('appointment-user-id')
-const apptId = document.getElementById('appointment-update-id')
+const appointmentDate = document.getElementById('appointment-date')
+const appointmentUpdateDate = document.getElementById('appointment-update-date')
+const apptIdUpdate = document.getElementById('appointment-update-id')
+const apptIdDelete = document.getElementById('appointment-cancel-id')
 
 const onGetIds = function () {
   const getId = document.getElementById('barb-id')
   const id = getId.getAttribute('data-id')
-  // userId.value = store.user.id
-  // customerId.value = store.user.id
   barberId.value = id
+  console.log(getId)
+  console.log(id)
+  console.log(barberId.value)
 }
 
 const onCreateAppointment = function (event) {
@@ -27,6 +27,8 @@ const onCreateAppointment = function (event) {
       .then(ui.onCreateAppointmentSuccess)
       .then(onGetAppointments)
       .catch(ui.onCreateAppointmentFailure)
+  } else {
+    ui.onCreateAppointmentFailure()
   }
 }
 
@@ -39,15 +41,30 @@ const onGetAppointments = function () {
 const onUpdateAppointment = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  const id = apptId.value
-  api.updateAppointment(data, id)
-    .then(ui.onUpdateAppointmentSuccess)
-    .catch(ui.onUpdateAppointmentFailure)
+  const id = apptIdUpdate.value
+  if (appointmentUpdateDate.value !== '') {
+    api.updateAppointment(data, id)
+      .then(ui.onUpdateAppointmentSuccess)
+      .then(onGetAppointments)
+      .catch(ui.onUpdateAppointmentFailure)
+  } else {
+    ui.onUpdateAppointmentFailure()
+  }
+}
+
+const onDeleteAppointment = function (event) {
+  event.preventDefault()
+  const id = apptIdDelete.value
+  api.deleteAppointment(id)
+    .then(ui.onDeleteAppointmentSuccess)
+    .then(onGetAppointments)
+    .catch(ui.onDeleteAppointmentFailure)
 }
 
 const addHandlers = function () {
   $('#make-appointment').on('submit', onCreateAppointment)
   $('#update-appointment').on('submit', onUpdateAppointment)
+  $('#cancel-appointment').on('submit', onDeleteAppointment)
 }
 
 module.exports = {

@@ -172,9 +172,9 @@
                     <form id="make-appointment">
                       <fieldset>
                         <legend>Make An Appointment!</legend>
-                          <h5 class="appointment-modal-failure"></h5>
+                          <h5 class="appointment-modal-failure" id="create-appointment-modal-failure"></h5>
                           <div class="appt-date">
-                            <label for="appointment-date">Date/Time:</label>
+                            <label for="appointment-date">Date & Time:</label>
                             <input type="datetime-local" id="appointment-date" name="appointment[date]"><br>
                           </div>
                           <input type="hidden" name="appointment[barber_id]" class="barb-id" id="appointment-barber-id" value="">
@@ -194,12 +194,29 @@
                           <legend>Update Your Appointment</legend>
                           <h5 class="appointment-modal-failure" id="update-appointment-modal-failure"></h5>
                           <div class="appt-date">
-                            <label for="appointment-id">Appointment ID:</label>
+                            <label for="appointment-id">APPT #:</label>
                             <input type="text" name="appointment[id]" id="appointment-update-id"><br>
-                            <label for="appointment-date">Date/Time:</label>
+                            <label for="appointment-date">New Date & Time:</label>
                             <input type="datetime-local" id="appointment-update-date" name="appointment[date]"><br>
                           </div>
                           <input type="submit" name="submit" value="Update Appointment">
+                        </fieldset>
+                      </form>
+                    </div>
+                  </div>
+                  <!-- Cancel Appointments button will trigger this modal -->
+                  <div id="appointment-cancel-modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close" id="close-appointment-cancel">&times;</span>
+                      <form id="cancel-appointment">
+                        <fieldset>
+                          <legend>Cancel Your Appointment</legend>
+                          <h5 class="appointment-modal-failure" id="cancel-appointment-modal-failure"></h5>
+                          <div>
+                            <label for="appointment-id">APPT #:</label>
+                            <input type="text" name="appointment[id]" id="appointment-cancel-id"><br>
+                          </div>
+                          <input type="submit" name="submit" value="Cancel Appointment">
                         </fieldset>
                       </form>
                     </div>
