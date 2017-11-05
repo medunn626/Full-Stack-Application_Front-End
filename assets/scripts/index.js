@@ -9,9 +9,9 @@ const appointmentEvents = require('./appointments/events')
 const passwordChangeOld = document.getElementById('old')
 const passwordChangeNew = document.getElementById('new')
 const createDate = document.getElementById('appointment-date')
-const updateID = document.getElementById('appointment-update-id')
+const updateId = document.getElementById('appointment-update-id')
 const updateDate = document.getElementById('appointment-update-date')
-const cancelID = document.getElementById('appointment-cancel-id')
+const cancelId = document.getElementById('appointment-cancel-id')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -69,7 +69,7 @@ $(() => {
 const appointmentUpdateModal = document.getElementById('appointment-update-modal')
 const closeAppointmentUpdateModal = function () {
   appointmentUpdateModal.style.display = 'none'
-  updateID.value = ''
+  updateId.value = ''
   updateDate.value = ''
   $('.appointment-modal-failure').text('')
 }
@@ -81,7 +81,7 @@ $(() => {
 const appointmentCancelModal = document.getElementById('appointment-cancel-modal')
 const closeAppointmentCancelModal = function () {
   appointmentCancelModal.style.display = 'none'
-  cancelID.value = ''
+  cancelId.value = ''
   $('.appointment-modal-failure').text('')
 }
 $(() => {

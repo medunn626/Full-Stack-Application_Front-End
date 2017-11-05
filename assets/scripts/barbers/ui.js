@@ -57,7 +57,6 @@ const onGetBarberSuccess = function (data) {
     $('div.find-form').append(showBarberHtmlLoggedOut)
   } else {
     $('div.find-form').append(showBarberHtml)
-    console.log('This is', this)
   }
   $('.appointment').on('click', function () {
     appointmentModal.style.display = 'block'

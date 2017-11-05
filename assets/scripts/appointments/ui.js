@@ -5,11 +5,16 @@ const showAppointmentsTemplate = require('../templates/appointments-listing.hand
 const appointmentModal = document.getElementById('appointment-modal')
 const appointmentUpdateModal = document.getElementById('appointment-update-modal')
 const appointmentCancelModal = document.getElementById('appointment-cancel-modal')
+const createDate = document.getElementById('appointment-date')
+const updateId = document.getElementById('appointment-update-id')
+const updateDate = document.getElementById('appointment-update-date')
+const cancelId = document.getElementById('appointment-cancel-id')
 
 const onCreateAppointmentSuccess = function (data) {
   store.appointment = data.appointment
   $('.success').text('Your appointment has been scheduled. Please call your barber to confirm.')
   appointmentModal.style.display = 'none'
+  createDate.value = ''
 }
 
 const onCreateAppointmentFailure = function () {
@@ -38,6 +43,8 @@ const onUpdateAppointmentSuccess = function () {
   $('.failure').text('')
   $('.success').text('Your appointment has been sucessfully updated.')
   appointmentUpdateModal.style.display = 'none'
+  updateId.value = ''
+  updateDate.value = ''
 }
 
 const onUpdateAppointmentFailure = function () {
@@ -48,6 +55,7 @@ const onDeleteAppointmentSuccess = function () {
   $('.failure').text('')
   $('.success').text('Your appointment has been sucessfully cancelled.')
   appointmentCancelModal.style.display = 'none'
+  cancelId.value = ''
 }
 
 const onDeleteAppointmentFailure = function () {
